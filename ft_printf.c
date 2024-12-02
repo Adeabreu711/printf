@@ -6,21 +6,47 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/11/30 17:19:24 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/02 18:44:14 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "ft_printf.h"
+#include "libft.h"
 #include <stdio.h>
 
 void	ft_printf(char *s, ...)
 {
-	va_list ptr;
+	int		i;
+	char	c;
+	va_list	ptr;
+
 	va_start(ptr, s);
+	i = -1;
+	while (s[++i])
+	{
+		c = ft_getformat(s + i++, "cspdiuxX%");
+		if (!c)
+			ft_putchar(s[--i]);
+		else if (c == 'c')
+			ft_putchar(*va_arg(ptr, char *));
+		else if (c == 's')
+			ft_putstr(va_arg(ptr, char *));
+		else if (c == 'p')
+			ft_writethexa(va_arg(ptr, void *));
+		else if (c == 'd' || c == 'i' || c == 'u')
+			ft_putchar(va_arg(ptr, int));
+		else if (c == 'x' || c == 'X')
+			ft_putchar(va_arg(ptr, int));
+		else if (c == '%')
+			ft_putchar(va_arg(ptr, int));
+	}
 }
+//printf("s[%i] : %c\n", i, s[i]);
+//printf("format : %c\n", c);
 
 int	main()
 {
-	ft_printf("test", 10, 40, 65);
-	//printf("test %   i, %c\n",42, 42, 42);
+	char *test = "test";
+	ft_printf("ft_test : %p\n", test);
+	printf("test : %p\n", test);
 }
