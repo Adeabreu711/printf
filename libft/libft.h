@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:56:10 by alde-abr          #+#    #+#             */
-/*   Updated: 2024/12/02 18:22:52 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/03 17:48:06 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
+void	ft_putbignbr(long long n);
 
 #endif

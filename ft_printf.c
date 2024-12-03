@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/02 18:44:14 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/03 17:56:09 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_printf(char *s, ...)
 		else if (c == 's')
 			ft_putstr(va_arg(ptr, char *));
 		else if (c == 'p')
-			ft_writethexa(va_arg(ptr, void *));
+			ft_putstr(va_arg(ptr, void *));
 		else if (c == 'd' || c == 'i' || c == 'u')
 			ft_putchar(va_arg(ptr, int));
 		else if (c == 'x' || c == 'X')
@@ -48,5 +48,5 @@ int	main()
 {
 	char *test = "test";
 	ft_printf("ft_test : %p\n", test);
-	printf("test : %p\n", test);
+	printf("test : %d\n", -9223372036854775807.7);
 }

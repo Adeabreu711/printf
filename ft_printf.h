@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:13:46 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/02 18:41:11 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/03 17:55:08 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@
 
 
 char	ft_getformat(char *s, char *set);
-void	ft_writethexa(void *value);
 
 #endif
