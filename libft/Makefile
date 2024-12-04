@@ -6,7 +6,7 @@
 #    By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 15:16:24 by alde-abr          #+#    #+#              #
-#    Updated: 2024/12/03 17:48:18 by alde-abre        ###   ########.fr        #
+#    Updated: 2024/12/04 17:28:26 by alde-abre        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC = \
 	ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
 	ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 	ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c \
-	ft_toupper.c ft_putchar.c ft_putstr.c ft_putbignbr.c
+	ft_toupper.c ft_putchar.c ft_putstr.c ft_putnbr_base.c \
+	ft_putunsnbr_base.c
 
 BONUS = \
 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
