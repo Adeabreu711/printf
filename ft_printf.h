@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:13:46 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/04 17:43:38 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/09 19:33:29 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "libft.h"
+# include <unistd.h>
+# include <stdio.h>
 
-void	ft_printf(char *s, ...);
-char	ft_getformat(char *s, char *set);
-void	ft_displaynumbers(long value, char form);
-void	ft_displayhexa(long value, char form);
+int		ft_printf(const char *s, ...);
+char	ft_getformat(const char *s, char *set);
+int		ft_strlen(char *str);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr_base(int nbr, char *base);
+int		ft_putnbr(int n);
+int		ft_putunsnbr(unsigned int n);
+int		ft_displayhexa(unsigned int value, char form);
+int		ft_displayptr(unsigned long value);
 
 #endif

@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 18:29:05 by alde-abr          #+#    #+#             */
-/*   Updated: 2024/11/22 15:52:12 by alde-abre        ###   ########.fr       */
+/*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
+/*   Updated: 2024/12/09 18:59:40 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include "ft_printf.h"
 
-/**
- * @brief Erase the first "n" bytes of the memory area pointed to.
- * @param {void*} "s" pointer to the targeted memory location.
- * @param {size_t} "n" size.
- */
-void	ft_bzero(void *s, size_t n)
+int	ft_strlen(char *str)
 {
-	ft_memset(s, 0, n);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	ft_getformat(const char *s, char *set)
+{
+	int	i;
+
+	i = -1;
+	if (!*(s + 1) || *s != '%')
+		return (0);
+	while (set[++i])
+		if (*(s + 1) == set[i])
+			return (set[i]);
+	return (0);
 }

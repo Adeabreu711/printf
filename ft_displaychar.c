@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_displaychar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 11:24:33 by alde-abr          #+#    #+#             */
-/*   Updated: 2024/12/02 16:20:34 by alde-abre        ###   ########.fr       */
+/*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
+/*   Updated: 2024/12/11 11:08:48 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 /**
- * @return A pointer with "elementCount" elements with a "size" size,
- * all values are init to '\0'.
+ * @brief Write the given char "c" in the standart entry (1).
  */
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_putchar(char c)
 {
-	void			*mem;
-	unsigned int	c_size;
-	int				i;
+	return (write(1, &c, 1));
+}
 
+/**
+ * @brief Write the given string "s" in the standart entry (1).
+ */
+int	ft_putstr(char *s)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	if (!s)
+	{
+		return (write(1, "(null)", 6));
+	}
 	i = -1;
-	c_size = nmemb * size;
-	if (c_size < nmemb && c_size < size)
-		return (NULL);
-	mem = malloc(c_size);
-	if (!mem)
-		return (NULL);
-	while (++i < (int)c_size)
-		*(unsigned char *)(mem + i) = 0;
-	return (mem);
+	while (s[++i])
+		count += write(1, &s[i], 1);
+	return (count);
 }
