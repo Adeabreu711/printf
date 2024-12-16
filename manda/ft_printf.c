@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/09 19:28:12 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/11 13:41:18 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_printf(const char *s, ...)
 	count = 0;
 	while (s[++i])
 	{
-		c = ft_getformat(s + i++, "cspdiuxX%");
+		c = ft_gettype(s + i++, "cspdiuxX%");
 		if (!c)
 			count += ft_putchar(s[--i]);
 		else
@@ -52,16 +52,42 @@ int	ft_printf(const char *s, ...)
 	return (count);
 }
 
-// int	main(int argc, char *argv[])
-// {
-// 	(void)argc;
-// 	(void)argv;
-// 	char *t = "test";
-// 	// ft_printf("ft_test : %c\n", 0xFFF);
-// 	// printf("test    : %c\n", 0xFFF);
+int	main(int argc, char *argv[])
+{
+	(void)argc;
+	(void)argv;
+	char *t = "test";
+	ft_printf("ft_test : % l123 \n", 0xFFF, 'a');
+	printf("test    : % l123 \n", 0xFFF, 'a');
 
-// 	TEST("TEST %p\n", 0x7FFFFFFFFFFFFFFF);
+	//TEST("TEST % i\n", 10);
+	// printf("%i\n", ft_printf("ft_test : %p\n", t));
+	// printf("%i\n", printf("test    : %p\n", t));
+}
 
-// 	// printf("%i\n", ft_printf("ft_test : %p\n", t));
-// 	// printf("%i\n", printf("test    : %p\n", t));
-// }
+/*
+
+%l45.6d
+
+
+
+%[+- #0]*[0-9]*        .[0-9]*     [cspdiuxX%]
+ Flags   Field_width   Precision   Conversion specifier
+
++ di
+- *
+0 diuxX
+' ' di
+# xX
+
+
+%10c, 'A' "         A"
+
+%.4d, 45 "0045"
+%04d, 45 "0045"
+%8.4, 45 "    0045"
+%-8d, 1000 "1000    "
+%+4.2d, 5 " +05"
+%#5.2x, 5 " 0x05"
+
+*/

@@ -1,0 +1,3 @@
+[submodule "bonus/libft"]
+	path = bonus/libft
+	url = git@github.com:Adeabreu711/libft.git

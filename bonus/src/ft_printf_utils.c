@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_displaychar.c                                   :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/11 11:08:48 by alde-abre        ###   ########.fr       */
+/*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
+/*   Updated: 2024/12/13 16:26:47 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "ft_printf.h"
 
-/**
- * @brief Write the given char "c" in the standart entry (1).
- */
-int	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * @brief Write the given string "s" in the standart entry (1).
- */
-int	ft_putstr(char *s)
+char	ft_gettype(const char *s, char *set)
 {
 	int	i;
-	int	count;
 
-	count = 0;
-	if (!s)
-	{
-		return (write(1, "(null)", 6));
-	}
 	i = -1;
-	while (s[++i])
-		count += write(1, &s[i], 1);
-	return (count);
+	if (!*(s + 1) || *s != '%')
+		return (0);
+	while (set[++i])
+		if (*(s + 1) == set[i])
+			return (set[i]);
+	return (0);
 }
