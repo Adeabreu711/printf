@@ -6,11 +6,11 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:33:00 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/15 18:41:31 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/16 20:00:06 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 /**
  * @brief Convert the given unsigned int "n" in a string and write it

@@ -6,12 +6,12 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/13 16:26:47 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/16 19:59:43 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 char	ft_gettype(const char *s, char *set)
 {

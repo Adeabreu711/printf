@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_libftprintf.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 16:13:46 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/16 18:15:02 by alde-abre        ###   ########.fr       */
+/*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
+/*   Updated: 2024/12/16 20:00:32 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef TEST_H
+# define TEST_H
 
 # include "libft.h"
+# include "ft_string_builder.h"
+
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>

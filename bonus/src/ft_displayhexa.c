@@ -6,11 +6,11 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:02:27 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/09 19:31:26 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/16 20:00:11 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 int	check_base(char *base)
 {

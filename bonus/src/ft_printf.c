@@ -6,11 +6,11 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/16 18:15:38 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/16 19:59:52 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 int	ft_applyformat(char c, va_list ptr)
 {

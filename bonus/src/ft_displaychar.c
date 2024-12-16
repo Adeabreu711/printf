@@ -6,11 +6,11 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/16 18:13:30 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/16 20:00:14 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 /**
  * @brief Write the given char "c" in the standart entry (1).
