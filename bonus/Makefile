@@ -6,7 +6,7 @@
 #    By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2024/12/16 17:48:45 by alde-abre        ###   ########.fr        #
+#    Updated: 2024/12/16 19:20:17 by alde-abre        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = \
 LIBS = \
 	libft/libft.a
 
-INCLUDES = -Ilibft/ -Iincludes/
+INCLUDES = -Ilibft/includes -Iincludes/
 
 OBJ_DIR = obj/
 
