@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/16 20:00:32 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/17 14:46:43 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ int		ft_putnbr(int n);
 int		ft_putunsnbr(unsigned int n);
 int		ft_displayhexa(unsigned int value, char form);
 int		ft_displayptr(unsigned long value);
+
+int	ft_parseformat(t_conv *out, char *format);
 
 #endif

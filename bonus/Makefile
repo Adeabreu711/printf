@@ -6,7 +6,7 @@
 #    By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2024/12/16 19:52:28 by alde-abre        ###   ########.fr        #
+#    Updated: 2024/12/17 14:55:41 by alde-abre        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC = \
 	ft_printf.c ft_printf_utils.c ft_displayhexa.c ft_displaynumbers.c \
