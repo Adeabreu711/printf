@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/17 17:19:09 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/20 13:18:54 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_debugconv(t_conv *conv)
 	ft_putchar('\n');
 	ft_putstr("len : ");
 	ft_putnbr(conv->lenght);
+	ft_putchar('\n');
 }
 
 int	main(int argc, char *argv[])
@@ -40,8 +41,23 @@ int	main(int argc, char *argv[])
 	t_sbuild	*temp;
 	t_conv		conv;
 
-	ft_parseformat(&conv, "-040i");
+	char str[10] = "0123456789";
+
+	ft_parseformat(&conv, "-5c");
 	ft_debugconv (&conv);
+	ft_displaychar(sb, &conv, 't');
+
+	// printf("[%10c]\n", '\0');
+	// printf("[%10c]\n",'c');
+	// printf("[%-10c]\n",'c');
+	//printf("[%-1.5s]\n","test");
+
+	// printf("[%-10.4i]\n", 10);
+	// printf("test : [%i]\n", !!0);
+	//printf("[%c]", 0);
+
+	// ft_parseformat(&conv, "-040i");
+	// ft_debugconv (&conv);
 	//ft_putbits(conv.flags);
 	// sb = ft_sbnew("");
 	// char	c = 'a';

@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:20:09 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/16 19:44:32 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/20 12:10:29 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	ft_sbclear(t_sbuild **container)
 		temp = (*container)->next;
 		if (temp)
 			free((*container)->next);
-		if ((*container)->str)
-			free((*container)->str);
 		*container = temp;
 	}
 }
