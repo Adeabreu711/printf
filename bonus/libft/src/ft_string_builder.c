@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:27:55 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/16 19:44:37 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/23 19:05:56 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	*ft_sb_buildstr(t_sbuild **container, char *str, size_t n)
 			ft_memmove(last->str + sb_len, str + i, n - i);
 			break ;
 		}
+
 		i += (SB_SIZE - 1) - sb_len;
 	}
 	return (*container);
@@ -63,11 +64,13 @@ int	ft_sb_display(t_sbuild *container)
 	t_sbuild	*temp;
 
 	temp = container;
+	ft_putchar('[');
 	while (temp->next)
 	{
 		ft_putstr(temp->str);
 		temp = temp->next;
 	}
 	ft_putstr(temp->str);
+	ft_putchar(']');
 	return (ft_sblen(container));
 }

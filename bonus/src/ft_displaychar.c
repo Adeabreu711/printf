@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/20 13:26:47 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/23 19:37:02 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,28 @@ int	ft_putcharlen(char c)
 }
 
 
-void ft_displaychar(t_sbuild *out, t_conv *conv, char c)
+int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c)
 {
 	char	*temp;
 	int		size;
 
-	size = conv->witdh + !!c;
+	size = !!c;
+	if (conv->witdh > size)
+		size += conv->witdh - size;
 	temp = ft_calloc(size + 1, sizeof(char));
 	if (!temp)
-		return ;
+		return (conv->lenght);
 	if (conv->witdh)
 		temp = ft_memset(temp, ' ', size);
-	if (!!(conv->flags &  ALIGN_L))
-		// temp = ft_memset(temp + );
+	if (!!(conv->flags &  ALIGN_L) && c)
+		ft_memset(temp, (int)c, 1);
+	else if (c)
+		ft_memset(temp + (size - 1), (int)c, 1);
+	ft_sb_buildstr(&out, temp, size);
+	return (conv->lenght);
 }
 
+//si strlen(str) > witdh
 
 /**
  * @brief Write the given string "s" in the standart entry (1).

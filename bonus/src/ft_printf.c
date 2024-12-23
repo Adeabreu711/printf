@@ -6,50 +6,42 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/17 15:51:50 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/23 18:56:16 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
-int	ft_applyformat(char c, va_list ptr)
+int	ft_applyconv(va_list ptr, t_conv *conv, t_sbuild *sb)
 {
-	if (c == 'c')
-		return (ft_putcharlen(va_arg(ptr, int)));
-	else if (c == 's')
-		return (ft_putstrlen(va_arg(ptr, char *)));
-	else if (c == 'd' || c == 'i')
-		return (ft_putnbr(va_arg(ptr, int)));
-	else if (c == 'u')
-		return (ft_putunsnbr(va_arg(ptr, int)));
-	else if (c == 'x' || c == 'X')
-		return (ft_displayhexa(va_arg(ptr, unsigned int), c));
-	if (c == 'p')
-		return (ft_displayptr(va_arg(ptr, unsigned long)));
-	else if (c == '%')
-		return (ft_putcharlen('%'));
-	return (0);
+	//printf ("type : %c\n", conv->type);
+	if (conv->type == 'c')
+		return (ft_pfbuildchar(sb, conv, va_arg(ptr, int)));
+	ft_sb_buildstr(&sb, "%", 1);
+	return (1);
 }
 
 int	ft_printf(const char *s, ...)
 {
-	int		i;
-	int		count;
-	char	c;
-	va_list	ptr;
+	int			count;
+	va_list		ptr;
+	t_conv		conv;
+	t_sbuild	*sb;
 
+	sb = ft_sbnew("");
 	va_start(ptr, s);
-	i = -1;
 	count = 0;
-	while (s[++i])
+	while (s[count])
 	{
-		c = ft_gettype(s + i++, "cspdiuxX%");
-		if (!c)
-			count += ft_putcharlen(s[--i]);
+		if (!ft_parseformat(&conv, (char *)s + count))
+		{
+			ft_sb_buildstr(&sb, (char *)s + count, 1);
+			count += 1;
+		}
 		else
-			count += ft_applyformat(c, ptr);
+			count += ft_applyconv(ptr, &conv, sb);
 	}
-	return (count);
+	return (ft_sb_display(sb));
 }
 
 // int	main(int argc, char *argv[])

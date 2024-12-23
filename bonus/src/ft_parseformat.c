@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:11:24 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/20 13:07:46 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/23 19:10:22 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@ int	ft_digitcount(int nb)
 
 int	ft_parseformat(t_conv *out, char *format)
 {
+	if (format[0] != '%')
+		return (0);
 	ft_init_conv(out);
-	ft_get_flags(out, format);
+	out->lenght += 1;
+	ft_get_flags(out, format + out->lenght);
 	out->witdh = ft_atoi(format + out->lenght);
 	out->lenght += ft_digitcount(out->witdh);
 	if (!format[out->lenght])

@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/20 13:04:17 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/23 17:04:30 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# define ALIGN_L	0b10000 // '-'
-# define SIGN		0b01000 // '+'
-# define NFILL		0b00100 // '0'
-# define ADD_SPACE	0b00010 // ' '
-# define PREFIX		0b00001 // '#'
+# define ALIGN_L	0b10000000 // '-'
+# define SIGN		0b01000000 // '+'
+# define NFILL		0b00100000 // '0'
+# define ADD_SPACE	0b00010000 // ' '
+# define PREFIX		0b00001000 // '#'
 
 typedef struct s_conv
 {
@@ -46,6 +46,6 @@ int		ft_displayhexa(unsigned int value, char form);
 int		ft_displayptr(unsigned long value);
 
 int	ft_parseformat(t_conv *out, char *format);
-void ft_displaychar(t_sbuild *out, t_conv *conv, char c);
+int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c);
 
 #endif

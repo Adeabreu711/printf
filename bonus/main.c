@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/20 13:18:54 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/23 19:37:17 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,20 @@ int	main(int argc, char *argv[])
 	(void)argc;
 	(void)argv;
 	t_sbuild	*sb;
-	t_sbuild	*temp;
 	t_conv		conv;
 
-	char str[10] = "0123456789";
+	// char str[10] = "0123456789";
 
-	ft_parseformat(&conv, "-5c");
-	ft_debugconv (&conv);
-	ft_displaychar(sb, &conv, 't');
+	// sb = ft_sbnew("");
+	// printf("writed : %i\n", ft_parseformat(&conv, "%-4c"));
+	// ft_pfbuildchar(sb, &conv, 't');
 
-	// printf("[%10c]\n", '\0');
+	// ft_sb_display(sb);
+
+	ft_printf("test%cb b", 0);
+	printf("\n[test%cb b]", 0);
+
+	//printf("[%3c]\n", 't');
 	// printf("[%10c]\n",'c');
 	// printf("[%-10c]\n",'c');
 	//printf("[%-1.5s]\n","test");

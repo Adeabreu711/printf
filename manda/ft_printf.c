@@ -6,13 +6,13 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/11 13:41:18 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/23 17:02:33 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_applyformat(char c, va_list ptr)
+int	ft_applyconv(char c, va_list ptr)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(ptr, int)));
@@ -47,7 +47,7 @@ int	ft_printf(const char *s, ...)
 		if (!c)
 			count += ft_putchar(s[--i]);
 		else
-			count += ft_applyformat(c, ptr);
+			count += ft_applyconv(c, ptr);
 	}
 	return (count);
 }
