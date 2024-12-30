@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:27:55 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/23 19:05:56 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/30 15:14:06 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ t_sbuild	*ft_sbnext(t_sbuild *last, t_sbuild *new, int *sb_len)
 }
 
 /**
- * @brief Add n char of the given str at the end of the last sb (string builder) string.
+ * @brief Add n char of the given str at the end of
+ * the last sb (string builder) string.
  */
 void	*ft_sb_buildstr(t_sbuild **container, char *str, size_t n)
 {
@@ -49,7 +50,6 @@ void	*ft_sb_buildstr(t_sbuild **container, char *str, size_t n)
 			ft_memmove(last->str + sb_len, str + i, n - i);
 			break ;
 		}
-
 		i += (SB_SIZE - 1) - sb_len;
 	}
 	return (*container);

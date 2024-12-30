@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/23 19:37:17 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/30 17:20:58 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,32 +40,29 @@ int	main(int argc, char *argv[])
 	t_sbuild	*sb;
 	t_conv		conv;
 
-	// char str[10] = "0123456789";
+	//char str[7] = "%1%2%3";
 
-	// sb = ft_sbnew("");
-	// printf("writed : %i\n", ft_parseformat(&conv, "%-4c"));
+	//sb = ft_sbnew("");
+	////printf("writed : %i\n", ft_parseformat(&conv, "%s"));
+	//ft_debugconv (&conv);
+	//printf("%i\n", ft_atoi("1s"));
 	// ft_pfbuildchar(sb, &conv, 't');
+	//ft_pfbuildstr(sb, &conv, "test");
 
 	// ft_sb_display(sb);
+	// ft_printf("%  - -0.1c0. s", NULL);
+	// printf("\n[% - -0.1c0. s]", NULL);
 
-	ft_printf("test%cb b", 0);
-	printf("\n[test%cb b]", 0);
-
-	//printf("[%3c]\n", 't');
-	// printf("[%10c]\n",'c');
-	// printf("[%-10c]\n",'c');
-	//printf("[%-1.5s]\n","test");
-
-	// printf("[%-10.4i]\n", 10);
-	// printf("test : [%i]\n", !!0);
-	//printf("[%c]", 0);
-
-	// ft_parseformat(&conv, "-040i");
-	// ft_debugconv (&conv);
+	printf("\n[%-   0. 10z. s]", NULL);
+	printf("\n[% - -0.1z0. s]", NULL);
+	printf("\n[% - -0.1z0. s]", NULL);
+	//printf("[%6s]\n", "test"); //[-] [ ]
+	//ft_parseformat(&conv, "-040s");
+	//ft_debugconv (&conv);
 	//ft_putbits(conv.flags);
-	// sb = ft_sbnew("");
+	//sb = ft_sbnew("");
 	// char	c = 'a';
-	// ft_sb_buildstr(&sb, "0123456789", 10);
+	//ft_sb_buildstr(&sb, "0123456789", 10);
 
 	// temp = sb;
 	// while (temp->next)

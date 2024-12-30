@@ -6,7 +6,7 @@
 #    By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2024/12/23 19:54:58 by alde-abre        ###   ########.fr        #
+#    Updated: 2024/12/29 15:09:53 by alde-abre        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC = \
 	ft_printf.c ft_printf_utils.c ft_displayhexa.c ft_displaynumbers.c \
-	ft_displaychar.c ft_parseformat.c
+	ft_pfbuildchar.c ft_parseformat.c ft_pfbuildstr.c
 
 LIBS = \
 	libft/libft.a

@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:11:24 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/23 19:10:22 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/30 17:15:57 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_get_flags(t_conv *out, char *format)
 	while (format[++i] && ft_strchr("-+0 #", format[i]))
 	{
 		temp = ft_strlen(ft_strchr("-+0 #", format[i]));
-		if(temp)
+		if (temp)
 			out->flags |= bit >> (5 - temp);
 	}
 	out->lenght += i;
@@ -41,6 +41,8 @@ int	ft_digitcount(int nb)
 	int	count;
 
 	count = 0;
+	if (nb == 0)
+		return (1);
 	while (nb > 0)
 	{
 		count++;
@@ -54,18 +56,22 @@ int	ft_parseformat(t_conv *out, char *format)
 	if (format[0] != '%')
 		return (0);
 	ft_init_conv(out);
-	out->lenght += 1;
+	out->lenght ++;
 	ft_get_flags(out, format + out->lenght);
 	out->witdh = ft_atoi(format + out->lenght);
-	out->lenght += ft_digitcount(out->witdh);
+	if (ft_isdigit(format[out->lenght]))
+		out->lenght += ft_digitcount(out->witdh);
 	if (!format[out->lenght])
 		return (0);
 	if (format[out->lenght] == '.')
 	{
-		out->precision = ft_atoi(format + out->flags + 1);
-		out->lenght += ft_digitcount(out->precision + 1);
+		out->precision = ft_atoi(format + (out->lenght + 1));
+		if (ft_isdigit(format[out->lenght + 1]))
+			out->lenght += ft_digitcount(out->precision);
+		out->lenght++;
 	}
-	out->type = *ft_strchr("cspdiuxX%", format[out->lenght]);
+	if (ft_strchr("cspdiuxX%", format[out->lenght]))
+		out->type = *ft_strchr("cspdiuxX%", format[out->lenght]);
 	if (out->type)
 	{
 		out->lenght++;
@@ -75,7 +81,7 @@ int	ft_parseformat(t_conv *out, char *format)
 }
 // char c = 0b10000000;
 
-// 0b00100000 & 0b10001000 = 0b00000000; c = (c & 0b10001000); c &= 0b10001000
+// 0b10100000 & 0b10001000 = 0b10000000; c = (c & 0b10001000); c &= 0b10001000
 // 0b10000000 | 0b10001111 = 0b10001111;
 // ~c = 0b0111111
 // 0b00100000 ^ 0b10001000 = 10
@@ -89,7 +95,6 @@ int	ft_parseformat(t_conv *out, char *format)
 // ^ : 011010 ^ 101010 = 110000
 // 011010 << 2 => 101000
 // >>
-
 
 //"# 0-+"
 // 0 -> 2

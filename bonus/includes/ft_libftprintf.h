@@ -6,12 +6,12 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/23 17:04:30 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/29 17:28:55 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#ifndef FT_LIBFTPRINTF_H
+# define FT_LIBFTPRINTF_H
 
 # include "libft.h"
 # include "ft_string_builder.h"
@@ -45,7 +45,10 @@ int		ft_putunsnbr(unsigned int n);
 int		ft_displayhexa(unsigned int value, char form);
 int		ft_displayptr(unsigned long value);
 
-int	ft_parseformat(t_conv *out, char *format);
-int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c);
+int		ft_parseformat(t_conv *out, char *format);
+int		ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c);
+int		ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str);
+
+char	*ft_strprcut(char *str, int precision);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:20:09 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/20 12:10:29 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/29 16:17:44 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,13 @@ t_sbuild	*ft_sblast(t_sbuild *container)
 }
 
 /**
- * @return The lenght of the total amount of char in the given sb (string builder).
+ * @return The lenght of the total amount of char
+ * in the given sb (string builder).
  */
 int	ft_sblen(t_sbuild *container)
 {
 	t_sbuild	*temp;
-	int	count;
+	int			count;
 
 	count = 0;
 	temp = container;

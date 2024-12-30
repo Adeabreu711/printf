@@ -6,17 +6,28 @@
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/23 18:56:16 by alde-abre        ###   ########.fr       */
+/*   Updated: 2024/12/30 17:10:58 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
+
+int	ft_pfgetformat(t_sbuild *sb, t_conv *conv, int count, char *s)
+{
+	// if (s[count] == '.' && !ft_parseformat(conv, ft_strrnchr(s, '%', count)))
+	// 	ft_sb_buildstr(&sb, ".0", 2);
+	// else
+	ft_sb_buildstr(&sb, (char *)s + count, 1);
+	return (1);
+}
 
 int	ft_applyconv(va_list ptr, t_conv *conv, t_sbuild *sb)
 {
 	//printf ("type : %c\n", conv->type);
 	if (conv->type == 'c')
 		return (ft_pfbuildchar(sb, conv, va_arg(ptr, int)));
+	else if (conv->type == 's')
+		return (ft_pfbuildstr(sb, conv, va_arg(ptr, char *)));
 	ft_sb_buildstr(&sb, "%", 1);
 	return (1);
 }
@@ -34,13 +45,11 @@ int	ft_printf(const char *s, ...)
 	while (s[count])
 	{
 		if (!ft_parseformat(&conv, (char *)s + count))
-		{
-			ft_sb_buildstr(&sb, (char *)s + count, 1);
-			count += 1;
-		}
+			count += ft_pfgetformat(sb, &conv, count, (char *)s);
 		else
 			count += ft_applyconv(ptr, &conv, sb);
 	}
+	va_end(ptr);
 	return (ft_sb_display(sb));
 }
 

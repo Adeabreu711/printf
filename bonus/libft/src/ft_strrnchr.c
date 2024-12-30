@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putbits.c                                       :+:      :+:    :+:   */
+/*   ft_strrnchr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 14:07:32 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/29 18:03:45 by alde-abre        ###   ########.fr       */
+/*   Created: 2024/11/17 15:09:00 by alde-abr          #+#    #+#             */
+/*   Updated: 2024/12/30 16:44:14 by alde-abre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 /**
- * @brief Print the given bits (char size).
+ * @return A pointer targeting the last char (int "c")
+ * encountered in given size "n" of the given string "s".
  */
-void	ft_putbits(char bits)
+char	*ft_strrnchr(const char *s, int c, size_t n)
 {
 	int				i;
-	unsigned char	mask;
+	unsigned char	*temp;
 
 	i = -1;
-	mask = 0b10000000;
-	while (++i < (int)(sizeof(unsigned char) * 8))
-	{
-		ft_putchar((!!(mask & bits)) + '0');
-		mask >>= 1;
-	}
+	temp = NULL;
+	while (s[++i] && n-- > 0)
+		if ((unsigned char)s[i] == (unsigned char)c)
+			temp = (unsigned char *)(s + i);
+	if ((unsigned char)c == '\0')
+		return ((char *)s + i);
+	return ((char *)temp);
 }
