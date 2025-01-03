@@ -14,9 +14,6 @@
 
 int	ft_pfgetformat(t_sbuild *sb, t_conv *conv, int count, char *s)
 {
-	// if (s[count] == '.' && !ft_parseformat(conv, ft_strrnchr(s, '%', count)))
-	// 	ft_sb_buildstr(&sb, ".0", 2);
-	// else
 	ft_sb_buildstr(&sb, (char *)s + count, 1);
 	return (1);
 }
@@ -49,8 +46,10 @@ int	ft_printf(const char *s, ...)
 		else
 			count += ft_applyconv(ptr, &conv, sb);
 	}
+	count = ft_sb_display(sb);
+	ft_sbclear(&sb);
 	va_end(ptr);
-	return (ft_sb_display(sb));
+	return (count);
 }
 
 // int	main(int argc, char *argv[])

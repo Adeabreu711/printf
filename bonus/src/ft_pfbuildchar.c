@@ -30,5 +30,6 @@ int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c)
 	else if (c)
 		ft_memset(temp + (size - 1), (int)c, 1);
 	ft_sb_buildstr(&out, temp, size);
+	free(temp);
 	return (conv->lenght);
 }

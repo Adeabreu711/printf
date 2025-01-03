@@ -37,8 +37,8 @@ int	main(int argc, char *argv[])
 {
 	(void)argc;
 	(void)argv;
-	t_sbuild	*sb;
-	t_conv		conv;
+	// t_sbuild	*sb;
+	// t_conv		conv;
 
 	//char str[7] = "%1%2%3";
 
@@ -50,12 +50,12 @@ int	main(int argc, char *argv[])
 	//ft_pfbuildstr(sb, &conv, "test");
 
 	// ft_sb_display(sb);
-	// ft_printf("%  - -0.1c0. s", NULL);
+	ft_printf("%  - -0.1c0. s", "test");
 	// printf("\n[% - -0.1c0. s]", NULL);
 
-	printf("\n[%-   0. 10z. s]", NULL);
-	printf("\n[% - -0.1z0. s]", NULL);
-	printf("\n[% - -0.1z0. s]", NULL);
+	// printf("\n[%-   0. 10z. s]", NULL);
+	// printf("\n[% - -0.1z0. s]", NULL);
+	// printf("\n[% - -0.1z0. s]", NULL);
 	//printf("[%6s]\n", "test"); //[-] [ ]
 	//ft_parseformat(&conv, "-040s");
 	//ft_debugconv (&conv);

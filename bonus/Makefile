@@ -44,7 +44,7 @@ $(NAME): libft/libft.a $(OBJ)
 
 #Compilation des fichiers .c en .o
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	$(CC) $(INCLUDES) -c $< -o $@
+	$(CC) $(INCLUDES) -g3 -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

@@ -47,5 +47,6 @@ int	ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str)
 	else
 		ft_memmove(temp + (size - slen), str, slen);
 	ft_sb_buildstr(&out, temp, size);
+	free(temp);
 	return (conv->lenght);
 }

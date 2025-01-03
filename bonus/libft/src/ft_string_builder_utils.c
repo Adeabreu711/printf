@@ -22,7 +22,7 @@ t_sbuild	*ft_sbnew(char *str)
 	int			i;
 
 	i = -1;
-	sb = malloc(sizeof(t_sbuild));
+	sb = ft_calloc(1, sizeof(t_sbuild));
 	if (!sb)
 		return (NULL);
 	while (str[++i] && i < SB_SIZE - 1)
@@ -42,8 +42,7 @@ void	ft_sbclear(t_sbuild **container)
 	while (*container)
 	{
 		temp = (*container)->next;
-		if (temp)
-			free((*container)->next);
+		free(*container);
 		*container = temp;
 	}
 }
