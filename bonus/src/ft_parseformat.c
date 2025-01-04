@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parseformat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:11:24 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/30 17:15:57 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/04 19:21:00 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_digitcount(int nb)
 	count = 0;
 	if (nb == 0)
 		return (1);
-	while (nb > 0)
+	while (nb != 0)
 	{
 		count++;
 		nb /= 10;

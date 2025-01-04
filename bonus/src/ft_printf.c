@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/30 17:10:58 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/04 19:16:46 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_applyconv(va_list ptr, t_conv *conv, t_sbuild *sb)
 		return (ft_pfbuildchar(sb, conv, va_arg(ptr, int)));
 	else if (conv->type == 's')
 		return (ft_pfbuildstr(sb, conv, va_arg(ptr, char *)));
+	else if (conv->type == 'i' || conv->type == 'd')
+		return (ft_pfbuildnb(sb, conv, va_arg(ptr, int)));
 	ft_sb_buildstr(&sb, "%", 1);
 	return (1);
 }

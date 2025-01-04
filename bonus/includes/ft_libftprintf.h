@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_libftprintf.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/29 17:28:55 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/04 19:15:31 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int		ft_displayptr(unsigned long value);
 int		ft_parseformat(t_conv *out, char *format);
 int		ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c);
 int		ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str);
+int		ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb);
 
 char	*ft_strprcut(char *str, int precision);
+int		ft_digitcount(int nb);
 
 #endif
