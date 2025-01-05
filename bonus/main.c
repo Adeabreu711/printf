@@ -55,8 +55,8 @@ int	main(int argc, char *argv[])
 	// printf("[%0.2i]\n", 3);
 	//ft_printf("[%+17i]\n", 1);
 	//printf("[%+17i]\n", 1);
-	ft_printf("%-+8d", 11);
-	printf("[%-+8d]", 11);
+	ft_printf("%8d", 0);
+	printf("[%8d]", 0);
 
 	// printf("\n[%-   0. 10z. s]", NULL);
 	// printf("\n[% - -0.1z0. s]", NULL);
