@@ -64,13 +64,11 @@ int	ft_sb_display(t_sbuild *container)
 	t_sbuild	*temp;
 
 	temp = container;
-	ft_putchar('[');
 	while (temp->next)
 	{
 		ft_putstr(temp->str);
 		temp = temp->next;
 	}
 	ft_putstr(temp->str);
-	ft_putchar(']');
 	return (ft_sblen(container));
 }

@@ -1,55 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pfbuildnb.c                                     :+:      :+:    :+:   */
+/*   ft_pfbuildunsnb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:54:25 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/06 17:56:29 by alex             ###   ########.fr       */
+/*   Updated: 2025/01/04 20:15:44 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
-char	ft_getsign(int nb)
-{
-	if (nb < 0)
-		return ('-');
-	return ('+');
-}
-
-void	ft_assign_nb(char *temp, t_conv *conv, int nb, int size)
+void	ft_assign_unsnb(char *temp, t_conv *conv, unsigned int nb, int size)
 {
 	int	nblen;
 	
-	nblen = ft_digitcount(nb);
+	nblen = ft_unsdigitcount(nb);
 	if (!!(conv->flags & ALIGN_L))
-	{
-		ft_memmove(temp + !!(conv->flags & SIGN), ft_itoa(nb), nblen);
-		temp[0] += (ft_getsign(nb) - temp[0]) * !!(conv->flags & SIGN);
-		return ;
-	}
-	ft_memmove(temp + (size - nblen), ft_itoa(nb), nblen);
-	temp[size - nblen - 1] += (ft_getsign(nb) - temp[size - nblen - 1]) * !!(conv->flags & SIGN);
+		ft_memmove(temp, ft_itoa(nb), nblen);
+	else
+		ft_memmove(temp + (size - nblen), ft_itoa(nb), nblen);
 }
 
-int	ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb)
+int	ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, unsigned int nb)
 {
 	char	*temp;
 	int		size;
 
-	size = ft_digitcount(nb) + !!(conv->flags & SIGN);
+	size = ft_unsdigitcount(nb);
 	if (conv->witdh > size)
 		size = conv->witdh;
 	temp = ft_calloc(size + 1, sizeof(char));
 	if (!temp)
 		return (conv->lenght);
-	if (!!(conv->flags & NFILL) && !(conv->flags & ALIGN_L))
+	if (!(conv->flags & ALIGN_L))
 		temp = ft_memset(temp, '0', size);
 	else
 		temp = ft_memset(temp, ' ', size);
-	ft_assign_nb(temp, conv, nb, size);
+	ft_assign_unsnb(temp, conv, nb, size);
 	ft_sb_buildstr(&out, temp, size);
 	free(temp);
 	return (conv->lenght);

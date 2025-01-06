@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_libftprintf.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/04 19:15:31 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:50:42 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,8 @@ typedef struct s_conv
 }	t_conv;
 
 int		ft_printf(const char *s, ...);
-char	ft_gettype(const char *s, char *set);
-int		ft_putcharlen(char c);
 int		ft_putstrlen(char *s);
 int		ft_putnbr_base(int nbr, char *base);
-int		ft_putnbr(int n);
-int		ft_putunsnbr(unsigned int n);
 int		ft_displayhexa(unsigned int value, char form);
 int		ft_displayptr(unsigned long value);
 
@@ -49,8 +45,14 @@ int		ft_parseformat(t_conv *out, char *format);
 int		ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c);
 int		ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str);
 int		ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb);
+int		ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, unsigned int nb);
 
 char	*ft_strprcut(char *str, int precision);
 int		ft_digitcount(int nb);
+char	ft_getsign(int nb);
+
+int		ft_unsdigitcount(unsigned int nb);
+char	*ft_unsitoa(unsigned int nb);
+char	*ft_unsitoa_base(unsigned long n, char *base);
 
 #endif

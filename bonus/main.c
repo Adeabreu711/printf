@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/04 20:15:11 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:00:40 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,9 @@ int	main(int argc, char *argv[])
 	//ft_pfbuildstr(sb, &conv, "test");
 
 	// ft_sb_display(sb);
-	// ft_printf("%  - -0.1c0. s", "test");
-	// printf("\n[% - -0.1c0. s]", NULL);
-	// printf("[%0.2i]\n", 3);
-	//ft_printf("[%+17i]\n", 1);
-	//printf("[%+17i]\n", 1);
-	ft_printf("%8d", 0);
-	printf("[%8d]", 0);
+	// ft_printf("[%#- 08u]", 145);
+	// printf("\n[%#- 08u]", 145);
+
 
 	// printf("\n[%-   0. 10z. s]", NULL);
 	// printf("\n[% - -0.1z0. s]", NULL);

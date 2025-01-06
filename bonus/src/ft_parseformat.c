@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parseformat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:11:24 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/04 19:21:00 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:56:21 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,6 @@ void	ft_get_flags(t_conv *out, char *format)
 			out->flags |= bit >> (5 - temp);
 	}
 	out->lenght += i;
-}
-
-int	ft_digitcount(int nb)
-{
-	int	count;
-
-	count = 0;
-	if (nb == 0)
-		return (1);
-	while (nb != 0)
-	{
-		count++;
-		nb /= 10;
-	}
-	return (count);
 }
 
 int	ft_parseformat(t_conv *out, char *format)

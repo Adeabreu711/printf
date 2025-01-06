@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+         #
+#    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 15:16:24 by alde-abr          #+#    #+#              #
-#    Updated: 2024/12/30 16:16:02 by alde-abre        ###   ########.fr        #
+#    Updated: 2025/01/06 18:08:28 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC = \
 	ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 	ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c \
 	ft_toupper.c ft_putstr.c ft_putchar.c ft_string_builder.c \
-	ft_string_builder_utils.c ft_putbits.c ft_strrnchr.c
+	ft_string_builder_utils.c ft_putbits.c ft_strrnchr.c \
+	ft_digitcount.c ft_putnbr.c
 
 BONUS = \
 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
@@ -42,8 +43,12 @@ all: $(NAME)
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 OBJ_BONUS = $(BONUS:.c=.o)
 
+#Création du dossier OBJ_DIR
+$(OBJ_DIR) :
+	mkdir -p $(OBJ_DIR)
+
 #Compilation de la lib
-$(NAME): $(OBJ)
+$(NAME): $(OBJ_DIR) $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 #Compilation des fichiers .c en .o

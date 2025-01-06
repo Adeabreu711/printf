@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+         #
+#    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2025/01/04 19:16:09 by alde-abr         ###   ########.fr        #
+#    Updated: 2025/01/06 18:50:51 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC = \
-	ft_printf.c ft_printf_utils.c ft_displayhexa.c ft_displaynumbers.c \
-	ft_pfbuildchar.c ft_parseformat.c ft_pfbuildstr.c ft_pfbuildnb.c
+	ft_printf.c ft_unsitoa.c ft_displayhexa.c \
+	ft_pfbuildchar.c ft_parseformat.c ft_pfbuildstr.c ft_pfbuildnb.c \
+	ft_pfbuildunsnb.c ft_pfbuildhexa.c ft_unsitoa_base.c
 
 LIBS = \
 	libft/libft.a
@@ -37,8 +38,12 @@ libft/libft.a:
 #Création des fichiers .o
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
+#Création du dossier OBJ_DIR
+$(OBJ_DIR) :
+	mkdir -p $(OBJ_DIR)
+
 #Compilation
-$(NAME): libft/libft.a $(OBJ)
+$(NAME): libft/libft.a $(OBJ_DIR) $(OBJ)
 	cp ./libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJ)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:56:10 by alde-abr          #+#    #+#             */
-/*   Updated: 2024/12/30 16:15:35 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/06 18:08:10 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putbits(char bits);
 char	*ft_strrnchr(const char *s, int c, size_t n);
+int		ft_digitcount(int n);
+int		ft_putnbr(int n);
 
 #endif

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_digitcount.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/16 19:59:43 by alde-abre        ###   ########.fr       */
+/*   Created: 2025/01/06 16:50:03 by alex              #+#    #+#             */
+/*   Updated: 2025/01/06 16:52:27 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "ft_libftprintf.h"
-
-char	ft_gettype(const char *s, char *set)
+/**
+ * @return The number of digits in the the given int "n".
+ */
+int	ft_digitcount(int n)
 {
-	int	i;
+	int	count;
 
-	i = -1;
-	if (!*(s + 1) || *s != '%')
-		return (0);
-	while (set[++i])
-		if (*(s + 1) == set[i])
-			return (set[i]);
-	return (0);
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		count++;
+		n /= 10;
+	}
+	return (count);
 }
