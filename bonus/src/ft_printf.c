@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/06 18:21:44 by alex             ###   ########.fr       */
+/*   Updated: 2025/01/06 21:29:12 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
-int	ft_pfgetformat(t_sbuild *sb, t_conv *conv, int count, char *s)
+int	ft_pfgetformat(t_sbuild *sb, int count, char *s)
 {
 	ft_sb_buildstr(&sb, (char *)s + count, 1);
 	return (1);
@@ -48,7 +48,7 @@ int	ft_printf(const char *s, ...)
 	while (s[count])
 	{
 		if (!ft_parseformat(&conv, (char *)s + count))
-			count += ft_pfgetformat(sb, &conv, count, (char *)s);
+			count += ft_pfgetformat(sb, count, (char *)s);
 		else
 			count += ft_applyconv(ptr, &conv, sb);
 	}

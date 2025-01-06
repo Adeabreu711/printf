@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:56:10 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/06 18:08:10 by alex             ###   ########.fr       */
+/*   Updated: 2025/01/06 21:20:41 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define INT_MIN -2147483647 -1
+# define INT_MAX 2147483647
 
 # include <string.h>
 # include <stdlib.h>
@@ -81,5 +84,6 @@ void	ft_putbits(char bits);
 char	*ft_strrnchr(const char *s, int c, size_t n);
 int		ft_digitcount(int n);
 int		ft_putnbr(int n);
+int		ft_atoi_base(char *str, char *base);
 
 #endif

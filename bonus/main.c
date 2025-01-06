@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/06 19:00:40 by alex             ###   ########.fr       */
+/*   Updated: 2025/01/06 21:32:19 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int	main(int argc, char *argv[])
 {
 	(void)argc;
 	(void)argv;
+
+
+	printf("%i\n", ft_atoi_base("011", "01"));
+	printf("\ndone\n");
+}
 	// t_sbuild	*sb;
 	// t_conv		conv;
 
@@ -73,7 +78,3 @@ int	main(int argc, char *argv[])
 	// }
 	// printf("str : [%s] next : (%p)\n", temp->str, temp->next);
 	// printf("len : %i\n", ft_sblen(sb));
-
-	// ft_sb_display(sb);
-	printf("\ndone\n");
-}

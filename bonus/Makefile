@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
+#    By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2025/01/06 18:50:51 by alex             ###   ########.fr        #
+#    Updated: 2025/01/06 21:32:14 by alexandre        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ fclean: clean
 re: fclean all
 
 test : all
-	cc main.c -g3 -c $(INCLUDES)
+	cc main.c -g3 -c $(CFLAGS) $(INCLUDES)
 	cc main.o -L. -lftprintf
 
 .PHONY = all clean fclean re test

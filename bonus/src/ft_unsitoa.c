@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unsitoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/06 17:53:54 by alex             ###   ########.fr       */
+/*   Updated: 2025/01/06 21:31:21 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,10 @@ char	*ft_unsitoa(unsigned int nb)
 	int		count;
 
 	count = ft_unsdigitcount(nb);
-	str = malloc((count + 1) * sizeof(char));
+	str = ft_calloc(count + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	if (nb < 0)
-	{
-		str[0] = '-';
-		nb = -nb;
-	}
-	str[count] = '\0';
-	while (count-- > 0 && str[count] != '-')
+	while (count-- > 0)
 	{
 		str[count] = (nb % 10) + '0';
 		nb /= 10;
