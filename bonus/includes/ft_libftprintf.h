@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_libftprintf.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/06 18:50:42 by alex             ###   ########.fr       */
+/*   Updated: 2025/01/07 23:45:01 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,15 @@ int		ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c);
 int		ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str);
 int		ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb);
 int		ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, unsigned int nb);
+int		ft_pfbuildhexa(t_sbuild *out, t_conv *conv, unsigned int nb);
 
 char	*ft_strprcut(char *str, int precision);
 int		ft_digitcount(int nb);
 char	ft_getsign(int nb);
 
-int		ft_unsdigitcount(unsigned int nb);
-char	*ft_unsitoa(unsigned int nb);
-char	*ft_unsitoa_base(unsigned long n, char *base);
+int		ft_unslngdigitcount(unsigned long nb);
+char	*ft_unslngitoa(unsigned long nb);
+int		ft_unslngatoi_base(char *str, char *base);
+int		ft_unslngdigitcount_base(unsigned long dec, char *base_to);
 
 #endif

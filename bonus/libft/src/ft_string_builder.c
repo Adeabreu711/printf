@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_builder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:27:55 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/30 15:14:06 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/07 13:25:12 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string_builder.h"
-#include "libft.h"
+#include "../includes/ft_string_builder.h"
+#include "../includes/libft.h"
 
 /**
  * @brief the given last->next become the new given ptr, sb_len become 0.

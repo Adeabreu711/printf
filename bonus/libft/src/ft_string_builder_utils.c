@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_builder_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:20:09 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/29 16:17:44 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/07 13:24:59 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string_builder.h"
-#include "libft.h"
+#include "../includes/ft_string_builder.h"
+#include "../includes/libft.h"
 
 /**
  * @return A pointer to a sb (string builder) ptr with the given string added.

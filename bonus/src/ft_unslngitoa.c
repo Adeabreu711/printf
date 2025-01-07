@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsitoa.c                                       :+:      :+:    :+:   */
+/*   ft_unslngitoa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/06 21:31:21 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/07 20:01:43 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
 /**
- * @return The number of digits in the the given unsigned int "nb".
+ * @return The number of digits in the the given unsigned long "nb".
  */
-int	ft_unsdigitcount(unsigned int nb)
+int	ft_unslngdigitcount(unsigned long nb)
 {
 	int	count;
 
@@ -31,14 +31,14 @@ int	ft_unsdigitcount(unsigned int nb)
 }
 
 /**
- * @return A string corresponding to the given unsigned int "n".
+ * @return A string corresponding to the given unsigned long "n".
  */
-char	*ft_unsitoa(unsigned int nb)
+char	*ft_unslngitoa(unsigned long nb)
 {
 	char	*str;
 	int		count;
 
-	count = ft_unsdigitcount(nb);
+	count = ft_unslngdigitcount(nb);
 	str = ft_calloc(count + 1, sizeof(char));
 	if (!str)
 		return (NULL);

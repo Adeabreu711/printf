@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 17:56:10 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/06 21:20:41 by alexandre        ###   ########.fr       */
+/*   Created: 2025/01/07 13:16:01 by alexandre         #+#    #+#             */
+/*   Updated: 2025/01/07 19:27:19 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,7 @@ char	*ft_strrnchr(const char *s, int c, size_t n);
 int		ft_digitcount(int n);
 int		ft_putnbr(int n);
 int		ft_atoi_base(char *str, char *base);
+char	*ft_convert_base(char *n, char *base_from, char *base_to);
+int		ft_digitcount_base(int dec, char *base_to);
 
 #endif

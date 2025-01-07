@@ -12,15 +12,15 @@
 
 #include "ft_libftprintf.h"
 
-void	ft_assign_unsnb(char *temp, t_conv *conv, unsigned int nb, int size)
+void	ft_assign_unslngnb(char *temp, t_conv *conv, unsigned long nb, int size)
 {
 	int	nblen;
-	
-	nblen = ft_unsdigitcount(nb);
+
+	nblen = ft_unslngdigitcount(nb);
 	if (!!(conv->flags & ALIGN_L))
-		ft_memmove(temp, ft_itoa(nb), nblen);
+		ft_memmove(temp, ft_unslngitoa(nb), nblen);
 	else
-		ft_memmove(temp + (size - nblen), ft_itoa(nb), nblen);
+		ft_memmove(temp + (size - nblen), ft_unslngitoa(nb), nblen);
 }
 
 int	ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, unsigned int nb)
@@ -28,7 +28,7 @@ int	ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, unsigned int nb)
 	char	*temp;
 	int		size;
 
-	size = ft_unsdigitcount(nb);
+	size = ft_unslngdigitcount((unsigned long)nb);
 	if (conv->witdh > size)
 		size = conv->witdh;
 	temp = ft_calloc(size + 1, sizeof(char));
@@ -38,7 +38,7 @@ int	ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, unsigned int nb)
 		temp = ft_memset(temp, '0', size);
 	else
 		temp = ft_memset(temp, ' ', size);
-	ft_assign_unsnb(temp, conv, nb, size);
+	ft_assign_unslngnb(temp, conv, (unsigned long)nb, size);
 	ft_sb_buildstr(&out, temp, size);
 	free(temp);
 	return (conv->lenght);

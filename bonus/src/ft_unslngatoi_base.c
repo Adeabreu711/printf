@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_unslngatoi_base.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 21:04:31 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/07 13:25:56 by alexandre        ###   ########.fr       */
+/*   Created: 2025/01/07 20:18:16 by alexandre         #+#    #+#             */
+/*   Updated: 2025/01/07 20:29:04 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 int	base_contain(char c, char *base)
 {
@@ -57,16 +57,14 @@ int	check_base(char *base)
  * The string can start with whitespaces, signs "-+" and numbers.
  * the base cannot have identical chars and the following chars " +-"
  */
-int	ft_atoi_base(char *str, char *base)
+int	ft_unslngatoi_base(char *str, char *base)
 {
 	int		i;
-	int		sign;
-	long	result;
+	unsigned long	result;
 	int		digit;
 	int		base_len;
 
 	i = 0;
-	sign = 1;
 	result = 0;
 	base_len = ft_strlen(base);
 	if (!check_base(base))
@@ -74,17 +72,11 @@ int	ft_atoi_base(char *str, char *base)
 	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
 		i++;
 	while (str[i] && (str[i] == '-' || str[i] == '+'))
-	{
-		if (str[i] == '-')
-			sign = -sign;
 		i++;
-	}
 	while (str[i] && (digit = base_contain(str[i], base)) >= 0)
 	{
 		result = result * base_len + digit;
-		if (result * sign > INT_MAX || result * sign < INT_MIN)
-			return (0);
 		i++;
 	}
-	return ((int)(result * sign));
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/06 21:29:12 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/07 20:38:09 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_pfgetformat(t_sbuild *sb, int count, char *s)
 
 int	ft_applyconv(va_list ptr, t_conv *conv, t_sbuild *sb)
 {
-	//printf ("type : %c\n", conv->type);
 	if (conv->type == 'c')
 		return (ft_pfbuildchar(sb, conv, va_arg(ptr, int)));
 	else if (conv->type == 's')
@@ -30,7 +29,7 @@ int	ft_applyconv(va_list ptr, t_conv *conv, t_sbuild *sb)
 	else if (conv->type == 'u')
 		return (ft_pfbuildunsnb(sb, conv, va_arg(ptr, unsigned int)));
 	else if (conv->type == 'x' || conv->type == 'X')
-		return (ft_pfbuildunsnb(sb, conv, va_arg(ptr, unsigned int)));
+		return (ft_pfbuildhexa(sb, conv, va_arg(ptr, unsigned int)));
 	ft_sb_buildstr(&sb, "%", 1);
 	return (1);
 }
