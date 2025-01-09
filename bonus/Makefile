@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+         #
+#    By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2025/01/07 20:29:12 by alexandre        ###   ########.fr        #
+#    Updated: 2025/01/08 17:03:02 by alde-abr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC = \
-	ft_printf.c ft_unslngitoa.c ft_displayhexa.c ft_unslngconvert_base.c\
-	ft_pfbuildchar.c ft_parseformat.c ft_pfbuildstr.c ft_pfbuildnb.c \
-	ft_pfbuildunsnb.c ft_pfbuildhexa.c ft_unsitoa_base.c ft_unslngatoi_base.c
+	ft_printf.c ft_displayhexa.c ft_parseformat.c ft_pfbuildchar.c ft_pfbuildhexa.c \
+	ft_pfbuildnb.c ft_pfbuildstr.c ft_unslngconvert_base.c ft_pfbuildunsnb.c \
+	ft_unslngatoi_base.c ft_unslngconvert_base.c ft_unslngitoa.c
 
 LIBS = \
 	libft/libft.a

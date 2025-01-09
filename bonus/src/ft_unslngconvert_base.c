@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unslngconvert_base.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:37:51 by alex              #+#    #+#             */
-/*   Updated: 2025/01/07 23:44:26 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/09 19:45:41 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @brief Add to the given char * "s" the result of the
  * decimal to base convertion.
  */
-static void	ft_strnbr_to_base(unsigned long dec, char *base, char *s)
+static void	ft_strnbr_to_base(uint64 dec, char *base, char *s)
 {
 	int	base_len;
 
@@ -35,7 +35,7 @@ static void	ft_strnbr_to_base(unsigned long dec, char *base, char *s)
  * @return The number of digits in the give int "dec" (decimal)
  * converted into the given base "base_to" .
  */
-int	ft_unslngdigitcount_base(unsigned long dec, char *base_to)
+int	ft_unslngdigitcount_base(uint64 dec, char *base_to)
 {
 	int	count;
 	unsigned long	temp;

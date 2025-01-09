@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_libftprintf.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/07 23:45:01 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/09 17:56:30 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int		ft_unslngdigitcount(unsigned long nb);
 char	*ft_unslngitoa(unsigned long nb);
 int		ft_unslngatoi_base(char *str, char *base);
 int		ft_unslngdigitcount_base(unsigned long dec, char *base_to);
+char	*ft_unslngconvert_base(char *n, char *base_from, char *base_to);
 
 #endif

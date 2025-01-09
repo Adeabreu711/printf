@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pfbuildchar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/06 18:10:18 by alex             ###   ########.fr       */
+/*   Updated: 2025/01/09 20:02:47 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,6 @@ int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c)
 	free(temp);
 	return (conv->lenght);
 }
+//% flag"+ #0-" 0-9. 0-9 type ""
+
+//% 0+9.3i 78 "00000078"

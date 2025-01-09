@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/07 23:50:39 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/09 20:19:23 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ int	main(int argc, char *argv[])
 	(void)argc;
 	(void)argv;
 
-	ft_printf("%X", 155);
-	printf("%X", 155);
+	//ft_printf("[%#.8X]\n", 155);
+	printf("[%#10.5X]", 155);
 	//printf("%i\n", ft_atoi_base("011", "01"));
 	//printf("%s\n", ft_convert_base("11111011", "01", "0123456789abcdef"));
+	//printf("[%.5u]\n", 14);
+	//ft_printf("[%.5u]", 14);
+
 	printf("\ndone\n");
 }
 	// t_sbuild	*sb;
