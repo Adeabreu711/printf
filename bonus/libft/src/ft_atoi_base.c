@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 21:04:31 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/07 13:25:56 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/11 23:59:36 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,13 @@ int	ft_atoi_base(char *str, char *base)
 	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
 		i++;
 	while (str[i] && (str[i] == '-' || str[i] == '+'))
-	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign = -sign;
-		i++;
-	}
-	while (str[i] && (digit = base_contain(str[i], base)) >= 0)
+	digit = base_contain(str[i], base);
+	while (str[i++] && digit >= 0)
 	{
 		result = result * base_len + digit;
-		if (result * sign > INT_MAX || result * sign < INT_MIN)
-			return (0);
-		i++;
+		digit = base_contain(str[i], base);
 	}
 	return ((int)(result * sign));
 }

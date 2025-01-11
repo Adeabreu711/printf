@@ -6,11 +6,11 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/07 20:38:09 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 00:08:12 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_pfgetformat(t_sbuild *sb, int count, char *s)
 {
@@ -30,8 +30,10 @@ int	ft_applyconv(va_list ptr, t_conv *conv, t_sbuild *sb)
 		return (ft_pfbuildunsnb(sb, conv, va_arg(ptr, unsigned int)));
 	else if (conv->type == 'x' || conv->type == 'X')
 		return (ft_pfbuildhexa(sb, conv, va_arg(ptr, unsigned int)));
+	else if (conv->type == 'p')
+		return (ft_pfbuildptr(sb, conv, va_arg(ptr, unsigned long)));
 	ft_sb_buildstr(&sb, "%", 1);
-	return (1);
+	return (conv->lenght);
 }
 
 int	ft_printf(const char *s, ...)

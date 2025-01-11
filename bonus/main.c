@@ -3,47 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/09 20:19:23 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/12 00:10:26 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 #include "libft.h"
 #include "ft_string_builder.h"
 
-void	ft_debugconv(t_conv *conv)
-{
-	ft_putstr("flags : ");
-	ft_putbits(conv->flags);
-	ft_putchar('\n');
-	ft_putstr("widht : ");
-	ft_putnbr(conv->witdh);
-	ft_putchar('\n');
-	ft_putstr("precision : ");
-	ft_putnbr(conv->precision);
-	ft_putchar('\n');
-	ft_putstr("type : ");
-	ft_putchar(conv->type);
-	ft_putchar('\n');
-	ft_putstr("len : ");
-	ft_putnbr(conv->lenght);
-	ft_putchar('\n');
-}
+// void	ft_debugconv(t_conv *conv)
+// {
+// 	ft_putstr("flags : ");
+// 	ft_putbits(conv->flags);
+// 	ft_putchar('\n');
+// 	ft_putstr("widht : ");
+// 	ft_putnbr(conv->witdh);
+// 	ft_putchar('\n');
+// 	ft_putstr("precision : ");
+// 	ft_putnbr(conv->precision);
+// 	ft_putchar('\n');
+// 	ft_putstr("type : ");
+// 	ft_putchar(conv->type);
+// 	ft_putchar('\n');
+// 	ft_putstr("len : ");
+// 	ft_putnbr(conv->lenght);
+// 	ft_putchar('\n');
+// }
 
 int	main(int argc, char *argv[])
 {
 	(void)argc;
 	(void)argv;
 
-	//ft_printf("[%#.8X]\n", 155);
-	printf("[%#10.5X]", 155);
-	//printf("%i\n", ft_atoi_base("011", "01"));
-	//printf("%s\n", ft_convert_base("11111011", "01", "0123456789abcdef"));
-	//printf("[%.5u]\n", 14);
-	//ft_printf("[%.5u]", 14);
+	// ft_printf("[je suis un %.14% de %-5.2s la suite de %15.p]\n", "test", &argc);
+	// 	printf("[je suis un %.14%
+	// de %-5.2s la suite de %15.p]", "test", &argc);
+	// 	//printf("%i\n", ft_atoi_base("011", "01"));
+	// 	//printf("[%8.5u]\n", 14);
+	// 	//ft_printf("[%8.5u]", 14);
 
 	printf("\ndone\n");
 }
@@ -62,7 +62,6 @@ int	main(int argc, char *argv[])
 	// ft_sb_display(sb);
 	// ft_printf("[%#- 08u]", 145);
 	// printf("\n[%#- 08u]", 145);
-
 
 	// printf("\n[%-   0. 10z. s]", NULL);
 	// printf("\n[% - -0.1z0. s]", NULL);

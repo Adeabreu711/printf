@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unslngconvert_base.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:37:51 by alex              #+#    #+#             */
-/*   Updated: 2025/01/09 19:45:41 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/12 00:08:20 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 /**
  * @brief Add to the given char * "s" the result of the
  * decimal to base convertion.
  */
-static void	ft_strnbr_to_base(uint64 dec, char *base, char *s)
+static void	ft_strnbr_to_base(t_uint64 dec, char *base, char *s)
 {
 	int	base_len;
 
@@ -35,16 +35,16 @@ static void	ft_strnbr_to_base(uint64 dec, char *base, char *s)
  * @return The number of digits in the give int "dec" (decimal)
  * converted into the given base "base_to" .
  */
-int	ft_unslngdigitcount_base(uint64 dec, char *base_to)
+int	ft_unslngdigitcount_base(t_uint64 dec, char *base_to)
 {
-	int	count;
-	unsigned long	temp;
-	int	base_len;
+	int			count;
+	t_uint64	temp;
+	int			base_len;
 
 	base_len = ft_strlen(base_to);
 	temp = 1;
 	count = 0;
-	while (temp <= dec)
+	while (temp <= dec && temp != 0)
 	{
 		temp *= base_len;
 		count++;
@@ -54,19 +54,22 @@ int	ft_unslngdigitcount_base(uint64 dec, char *base_to)
 
 /**
  * @brief Converts the given string "n" into another base.
- *
  * @param n Pointer to the string representing the value to convert.
- * @param base_from Pointer to the string representing the base of the input value "n".
+ * @param base_from Pointer to the string representing
+ * the base of the input value "n".
  * @param base_to Pointer to the string representing the desired target base.
- * @return A pointer to the converted string "n" in the given target base "base_to".
+ * @return A pointer to the converted string "n" in the given
+ * target base "base_to".
  */
 char	*ft_unslngconvert_base(char *n, char *base_from, char *base_to)
 {
-	char			*s;
-	unsigned long	dec;
+	char		*s;
+	t_uint64	dec;
+	int			size;
 
-	dec = ft_atoi_base(n, base_from);
-	s = ft_calloc(ft_unslngdigitcount_base(dec, base_to) + 1, sizeof(char));
+	dec = ft_unslngatoi_base(n, base_from);
+	size = ft_unslngdigitcount_base(dec, base_to);
+	s = ft_calloc(size + 1, sizeof(char));
 	if (s == NULL)
 		return (NULL);
 	ft_strnbr_to_base(dec, base_to, s);

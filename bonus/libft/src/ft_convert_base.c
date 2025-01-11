@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:54:16 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/07 19:39:25 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/11 23:49:18 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ static void	ft_strnbr_to_base(int n, char *base, char *s)
  * @brief Converts the given string "n" into another base.
  *
  * @param n Pointer to the string representing the value to convert.
- * @param base_from Pointer to the string representing the base of the input value "n".
+ * @param base_from Pointer to the string representing the
+ * base of the input value "n".
  * @param base_to Pointer to the string representing the desired target base.
- * @return A pointer to the converted string "n" in the given target base "base_to".
+ * @return A pointer to the converted string "n" in the given
+ * target base "base_to".
  */
 char	*ft_convert_base(char *n, char *base_from, char *base_to)
 {

@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pfbuildhexa.c                                   :+:      :+:    :+:   */
+/*   ft_pfbuildptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 18:01:33 by alex              #+#    #+#             */
-/*   Updated: 2025/01/12 00:07:46 by alexandre        ###   ########.fr       */
+/*   Created: 2025/01/11 22:07:05 by alexandre         #+#    #+#             */
+/*   Updated: 2025/01/12 00:07:57 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	ft_get_ptr_size(t_conv *conv, int hexalen)
-{
-	int	size;
-	int	sflag;
-
-	size = hexalen;
-	sflag = conv->precision + !!(conv->flags & PREFIX) * 2;
-	if (conv->precision > hexalen && conv->witdh < sflag)
-		return (sflag);
-	else if (conv->witdh > size || conv->precision > size)
-		size = ft_intcomp(conv->witdh, conv->precision, 1);
-	if (!!(conv->flags & PREFIX) && conv->witdh < hexalen + 2
-		&& conv->witdh > conv->precision)
-		size += 2;
-	return (size);
-}
 
 static char	*ft_set_tempunsnb(char *temp, t_conv *conv, int size, int hexalen)
 {
@@ -48,7 +31,7 @@ static char	*ft_set_tempunsnb(char *temp, t_conv *conv, int size, int hexalen)
 	return (temp);
 }
 
-static char	*ft_assign_hexa(char *temp, t_conv *conv, t_uint32 nb, char *base)
+static char	*ft_assign_ptr(char *temp, t_conv *conv, t_uint64 nb, char *base)
 {
 	char	*hexa;
 	char	*dec;
@@ -57,7 +40,7 @@ static char	*ft_assign_hexa(char *temp, t_conv *conv, t_uint32 nb, char *base)
 	int		offset;
 
 	size = strlen(temp);
-	dec = ft_unslngitoa((t_uint64)nb);
+	dec = ft_unslngitoa(nb);
 	hexa = ft_unslngconvert_base(dec, "0123456789", base);
 	hexalen = ft_strlen(hexa);
 	offset = (conv->precision - hexalen) * (hexalen < conv->precision);
@@ -74,25 +57,31 @@ static char	*ft_assign_hexa(char *temp, t_conv *conv, t_uint32 nb, char *base)
 		ft_memmove(temp + (size - hexalen - offset) - 2, "0x", 2);
 	ft_memmove(temp + (size - hexalen), hexa, hexalen);
 	return (free(hexa), free(dec), temp);
+	return (temp);
 }
 
-int	ft_pfbuildhexa(t_sbuild *out, t_conv *conv, t_uint32 nb)
+int	ft_pfbuildptr(t_sbuild *out, t_conv *conv, t_uint64 nb)
 {
 	char	*temp;
 	char	*base;
 	int		hexalen;
 	int		size;
 
+	if (!nb)
+	{
+		ft_sb_buildstr(&out, "(nil)", 5);
+		return (conv->lenght);
+	}
 	base = "0123456789abcdef";
-	hexalen = ft_unslngdigitcount_base((t_uint64)nb, base);
-	size = ft_get_ptr_size(conv, hexalen);
+	hexalen = ft_unslngdigitcount_base(nb, base);
+	size = hexalen + 2;
+	if (conv->witdh > size || conv->precision + 2 > size)
+		size = ft_intcomp(conv->witdh, conv->precision + 2, 1);
 	temp = ft_calloc(size + 1, sizeof(char));
 	if (!temp)
 		return (conv->lenght);
 	temp = ft_set_tempunsnb(temp, conv, size, hexalen);
-	temp = ft_assign_hexa(temp, conv, nb, base);
-	if (conv->type == 'X')
-		temp = ft_strupcase(temp);
+	temp = ft_assign_ptr(temp, conv, nb, base);
 	ft_sb_buildstr(&out, temp, size);
 	free(temp);
 	return (conv->lenght);

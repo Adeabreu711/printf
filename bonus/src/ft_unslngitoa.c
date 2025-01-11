@@ -6,16 +6,16 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/07 20:01:43 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 00:09:03 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
 /**
  * @return The number of digits in the the given unsigned long "nb".
  */
-int	ft_unslngdigitcount(unsigned long nb)
+int	ft_unslngdigitcount(t_uint64 nb)
 {
 	int	count;
 
@@ -33,7 +33,7 @@ int	ft_unslngdigitcount(unsigned long nb)
 /**
  * @return A string corresponding to the given unsigned long "n".
  */
-char	*ft_unslngitoa(unsigned long nb)
+char	*ft_unslngitoa(t_uint64 nb)
 {
 	char	*str;
 	int		count;

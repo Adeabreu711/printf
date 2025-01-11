@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pfbuildstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:09:46 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/08 17:08:08 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/12 00:08:02 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_checknullstr(t_sbuild *out, char *str, int prc)
 {
@@ -20,7 +20,7 @@ int	ft_checknullstr(t_sbuild *out, char *str, int prc)
 		return (0);
 	}
 	else if (!str)
-		return(0);
+		return (0);
 	return (1);
 }
 

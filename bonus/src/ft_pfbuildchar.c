@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pfbuildchar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/09 20:02:47 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/12 00:07:42 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c)
 {

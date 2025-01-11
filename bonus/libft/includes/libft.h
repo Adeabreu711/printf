@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:16:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/09 19:16:11 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:37:40 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define INT_MIN -2147483647 -1
-# define INT_MAX 2147483647
-
-# define uint16 unsigned short
-# define uint32 unsigned int
-# define uint64 unsigned long
-
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef unsigned short	t_uint16;
+typedef unsigned int	t_uint32;
+typedef unsigned long	t_uint64;
+
+# define INT_MIN -21474836478
+# define INT_MAX 2147483647
 
 //Part 1 : libc Functions
 int		ft_isalpha(int c);
@@ -93,7 +93,6 @@ char	*ft_convert_base(char *n, char *base_from, char *base_to);
 int		ft_digitcount_base(int dec, char *base_to);
 char	*ft_strupcase(char *str);
 char	*ft_strlowcase(char *str);
-int		ft_intcomp(int i, int j, uint16 upper);
-
+int		ft_intcomp(int i, int j, t_uint16 upper);
 
 #endif

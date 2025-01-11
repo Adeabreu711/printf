@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:06:45 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/07 13:23:43 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/11 23:49:33 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	count = ft_countnum(n);
-	str = malloc((count + 1) * sizeof(char));
+	str = ft_calloc(count + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	if (n < 0)
@@ -47,7 +47,6 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 		n = -n;
 	}
-	str[count] = '\0';
 	while (count-- > 0 && str[count] != '-')
 	{
 		str[count] = (n % 10) + '0';

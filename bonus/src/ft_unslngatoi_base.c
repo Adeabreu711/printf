@@ -6,11 +6,11 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:18:16 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/07 20:29:04 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 00:08:16 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	base_contain(char c, char *base)
 {
@@ -57,12 +57,12 @@ int	check_base(char *base)
  * The string can start with whitespaces, signs "-+" and numbers.
  * the base cannot have identical chars and the following chars " +-"
  */
-int	ft_unslngatoi_base(char *str, char *base)
+t_uint64	ft_unslngatoi_base(char *str, char *base)
 {
-	int		i;
-	unsigned long	result;
-	int		digit;
-	int		base_len;
+	int			i;
+	t_uint64	result;
+	int			digit;
+	int			base_len;
 
 	i = 0;
 	result = 0;
@@ -73,10 +73,12 @@ int	ft_unslngatoi_base(char *str, char *base)
 		i++;
 	while (str[i] && (str[i] == '-' || str[i] == '+'))
 		i++;
-	while (str[i] && (digit = base_contain(str[i], base)) >= 0)
+	digit = base_contain(str[i], base);
+	while (str[i] && digit >= 0)
 	{
 		result = result * base_len + digit;
 		i++;
+		digit = base_contain(str[i], base);
 	}
 	return (result);
 }
