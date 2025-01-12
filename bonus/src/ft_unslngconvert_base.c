@@ -6,12 +6,11 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:37:51 by alex              #+#    #+#             */
-/*   Updated: 2025/01/12 00:08:20 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 14:51:49 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
 /**
  * @brief Add to the given char * "s" the result of the
@@ -19,7 +18,7 @@
  */
 static void	ft_strnbr_to_base(t_uint64 dec, char *base, char *s)
 {
-	int	base_len;
+	t_uint64	base_len;
 
 	base_len = ft_strlen(base);
 	if (dec > base_len - 1)

@@ -6,11 +6,11 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/12 00:07:42 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 14:50:03 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c)
 {

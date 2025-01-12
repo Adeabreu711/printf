@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                   :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 19:53:39 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/11 23:41:38 by alexandre        ###   ########.fr       */
+/*   Created: 2025/01/12 15:51:46 by alexandre         #+#    #+#             */
+/*   Updated: 2025/01/12 15:51:53 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
-# include "ft_string_builder.h"
+# include "../libft/includes/libft.h"
+# include "../libft/includes/ft_string_builder.h"
 
 # include <stdarg.h>
 # include <unistd.h>

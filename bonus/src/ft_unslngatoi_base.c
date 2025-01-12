@@ -6,11 +6,11 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:18:16 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/12 00:08:16 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 14:49:29 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	base_contain(char c, char *base)
 {

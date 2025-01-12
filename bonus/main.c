@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/12 00:10:26 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 14:47:18 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int argc, char *argv[])
 {
 	(void)argc;
 	(void)argv;
-
 	// ft_printf("[je suis un %.14% de %-5.2s la suite de %15.p]\n", "test", &argc);
 	// 	printf("[je suis un %.14%
 	// de %-5.2s la suite de %15.p]", "test", &argc);

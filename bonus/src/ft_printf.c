@@ -6,11 +6,11 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/12 00:08:12 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/12 14:49:35 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_pfgetformat(t_sbuild *sb, int count, char *s)
 {

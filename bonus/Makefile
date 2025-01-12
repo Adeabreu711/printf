@@ -6,7 +6,7 @@
 #    By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2025/01/12 00:11:15 by alexandre        ###   ########.fr        #
+#    Updated: 2025/01/12 14:46:11 by alexandre        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ $(NAME): libft/libft.a $(OBJ_DIR) $(OBJ)
 
 #Compilation des fichiers .c en .o
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	$(CC) $(INCLUDES) -g3 -c $< -o $@
+	$(CC) $(INCLUDES) $(CFLAGS) -g3 -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
