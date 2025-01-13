@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_builder_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:20:09 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/07 13:24:59 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/13 17:46:38 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_sbuild	*ft_sbnew(char *str)
 		return (NULL);
 	while (str[++i] && i < SB_SIZE - 1)
 		sb->str[i] = str[i];
+	sb->id = i;
 	sb->next = NULL;
 	return (sb);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unslngconvert_base.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:37:51 by alex              #+#    #+#             */
-/*   Updated: 2025/01/12 14:51:49 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/13 14:40:43 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	ft_unslngdigitcount_base(t_uint64 dec, char *base_to)
 	t_uint64	temp;
 	int			base_len;
 
+	if (!dec)
+		return (1);
 	base_len = ft_strlen(base_to);
 	temp = 1;
 	count = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_builder.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:28:08 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/17 13:40:37 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/13 16:48:20 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_sbuild
 {
 	char	str[SB_SIZE];
+	int		id;
 	void	*next;
 }	t_sbuild;
 

@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstrn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 11:42:36 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/13 17:04:36 by alde-abr         ###   ########.fr       */
+/*   Created: 2025/01/13 17:03:42 by alde-abr          #+#    #+#             */
+/*   Updated: 2025/01/13 17:08:46 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-/**
- * @return A pointer directing to a copy of the given string "s".
- */
-char	*ft_strdup(const char *s)
+void	ft_putstrn(char *s, size_t n)
 {
-	char	*dup;
-	int		s_len;
+	size_t i;
 
-	s_len = ft_strlen(s);
-	dup = malloc((s_len + 1) * sizeof(char));
-	if (!dup)
-		return (NULL);
-	dup[s_len] = '\0';
-	while (s_len-- > 0)
-		dup[s_len] = s[s_len];
-	return (dup);
+	i = 0;
+	while (i < n)
+		ft_putchar(s[i++]);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pfbuildchar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/12 14:50:03 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/13 18:39:52 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	ft_pfbuildchar(t_sbuild *out, t_conv *conv, char c)
 	char	*temp;
 	int		size;
 
+	if (!c)
+	{
+		ft_sb_buildstr(&out, "\0", 1);
+		return (conv->lenght);
+	}
 	size = !!c;
 	if (conv->witdh > size)
 		size += conv->witdh - size;

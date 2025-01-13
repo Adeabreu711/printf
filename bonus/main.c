@@ -3,81 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/12 14:47:18 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/13 18:28:29 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include "../libft/includes/libft.h"
 #include "ft_string_builder.h"
 
-// void	ft_debugconv(t_conv *conv)
-// {
-// 	ft_putstr("flags : ");
-// 	ft_putbits(conv->flags);
-// 	ft_putchar('\n');
-// 	ft_putstr("widht : ");
-// 	ft_putnbr(conv->witdh);
-// 	ft_putchar('\n');
-// 	ft_putstr("precision : ");
-// 	ft_putnbr(conv->precision);
-// 	ft_putchar('\n');
-// 	ft_putstr("type : ");
-// 	ft_putchar(conv->type);
-// 	ft_putchar('\n');
-// 	ft_putstr("len : ");
-// 	ft_putnbr(conv->lenght);
-// 	ft_putchar('\n');
-// }
+#define TEST(name, format, ...) {\
+	dprintf(1, "\n ======= TEST : %s : format:%s\n", name, format);\
+	int a = dprintf(1, "0"format, __VA_ARGS__);\
+	int b = ft_printf("1"format, __VA_ARGS__);\
+	dprintf(1, "diff %d %d\n", a, b);\
+}
 
 int	main(int argc, char *argv[])
 {
 	(void)argc;
 	(void)argv;
-	// ft_printf("[je suis un %.14% de %-5.2s la suite de %15.p]\n", "test", &argc);
-	// 	printf("[je suis un %.14%
-	// de %-5.2s la suite de %15.p]", "test", &argc);
-	// 	//printf("%i\n", ft_atoi_base("011", "01"));
-	// 	//printf("[%8.5u]\n", 14);
-	// 	//ft_printf("[%8.5u]", 14);
+
+	TEST("A", "[%c je suis un test]\n", 0);
+
+	TEST("F", "[ %c %c %c ]\n", '0', 0, '1');
+	TEST("J", "[ %c %c %c ]\n", '2', '1', 0);
+	TEST("K", "[ %c %c %c ]\n", 0, '1', '2');
+
+	// printf("[\0\0 test \0]");
+	// ft_printf("[\0\0 test \0]");
 
 	printf("\ndone\n");
 }
-	// t_sbuild	*sb;
-	// t_conv		conv;
 
-	//char str[7] = "%1%2%3";
-
-	//sb = ft_sbnew("");
-	////printf("writed : %i\n", ft_parseformat(&conv, "%s"));
-	//ft_debugconv (&conv);
-	//printf("%i\n", ft_atoi("1s"));
-	// ft_pfbuildchar(sb, &conv, 't');
-	//ft_pfbuildstr(sb, &conv, "test");
-
-	// ft_sb_display(sb);
-	// ft_printf("[%#- 08u]", 145);
-	// printf("\n[%#- 08u]", 145);
-
-	// printf("\n[%-   0. 10z. s]", NULL);
-	// printf("\n[% - -0.1z0. s]", NULL);
-	// printf("\n[% - -0.1z0. s]", NULL);
-	//printf("[%6s]\n", "test"); //[-] [ ]
-	//ft_parseformat(&conv, "-040s");
-	//ft_debugconv (&conv);
-	//ft_putbits(conv.flags);
-	//sb = ft_sbnew("");
-	// char	c = 'a';
-	//ft_sb_buildstr(&sb, "0123456789", 10);
-
-	// temp = sb;
-	// while (temp->next)
-	// {
-	// 	printf("str : [%s] next : (%p)\n", temp->str, temp->next);
-	// 	temp = temp->next;
-	// }
-	// printf("str : [%s] next : (%p)\n", temp->str, temp->next);
-	// printf("len : %i\n", ft_sblen(sb));

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pfbuildnb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:54:25 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/12 00:07:51 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/13 14:58:33 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 char	ft_getsign(int nb)
 {
@@ -56,9 +56,10 @@ static char	*ft_assign_nb(char *temp, t_conv *conv, int nb, int size)
 	if ((!!(conv->flags & NFILL) && conv->precision == -1)
 		|| !!(conv->flags & ALIGN_L))
 		temp[0] += (ft_getsign(nb) - temp[0]) * !!(conv->flags & SIGN);
-	else
-		temp[size - nblen - 1] += (ft_getsign(nb) - temp[size - nblen - 1])
-			* !!(conv->flags & SIGN);
+	else if (conv->flags & SIGN)
+	{
+		temp[size - nblen - 1] = ft_getsign(nb);
+	}
 	return (free(snb), temp);
 }
 

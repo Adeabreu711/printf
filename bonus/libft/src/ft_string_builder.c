@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_builder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:27:55 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/07 13:25:12 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/13 17:59:08 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
  * @brief the given last->next become the new given ptr, sb_len become 0.
  * @return last->next.
  */
-t_sbuild	*ft_sbnext(t_sbuild *last, t_sbuild *new, int *sb_len)
+t_sbuild	*ft_sbnext(t_sbuild *last, t_sbuild *new)
 {
 	last->next = new;
-	*sb_len = 0;
+	last->id = SB_SIZE - 1;
 	return (new);
 }
 
@@ -32,25 +32,27 @@ void	*ft_sb_buildstr(t_sbuild **container, char *str, size_t n)
 {
 	t_sbuild	*last;
 	size_t		i;
-	int			sb_len;
 
 	i = 0;
 	last = ft_sblast(*container);
 	if (!*container || !last || SB_SIZE <= 1)
 		return (*container);
-	while (str[i])
+	while (i < n)
 	{
-		sb_len = ft_strlen(last->str);
-		if ((SB_SIZE - 1) - sb_len <= 0)
-			last = ft_sbnext(last, ft_sbnew(""), &sb_len);
-		if ((int)(n - i) > (SB_SIZE - 1) - sb_len)
-			ft_memmove(last->str + sb_len, str + i, (SB_SIZE - 1) - sb_len);
+		if ((SB_SIZE - 1) - last->id <= 0)
+			last = ft_sbnext(last, ft_sbnew(""));
+		if ((int)(n - i) > (SB_SIZE - 1) - last->id)
+		{
+			ft_memmove(last->str + last->id, str + i, (SB_SIZE - 1) - last->id);
+			i += (SB_SIZE - 1) - last->id;
+			last->id = SB_SIZE - 1;
+		}
 		else
 		{
-			ft_memmove(last->str + sb_len, str + i, n - i);
+			ft_memmove(last->str + last->id, str + i, n - i);
+			last->id += n - i;
 			break ;
 		}
-		i += (SB_SIZE - 1) - sb_len;
 	}
 	return (*container);
 }
@@ -66,9 +68,12 @@ int	ft_sb_display(t_sbuild *container)
 	temp = container;
 	while (temp->next)
 	{
-		ft_putstr(temp->str);
+		ft_putstrn(temp->str, temp->id);
+		// printf("temp : (%s)\n", temp->str);
+		// printf("id size : %i\n", temp->id);
 		temp = temp->next;
 	}
-	ft_putstr(temp->str);
+	ft_putstrn(temp->str, temp->id);
+	// printf("id size : %i\n", temp->id);
 	return (ft_sblen(container));
 }

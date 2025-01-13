@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:25:47 by alde-abr          #+#    #+#             */
-/*   Updated: 2024/11/18 14:25:48 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:04:42 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	ft_count_splits(char const *s, char c)
 {
