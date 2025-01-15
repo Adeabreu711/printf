@@ -6,7 +6,7 @@
 #    By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2025/01/13 18:13:39 by alde-abr         ###   ########.fr        #
+#    Updated: 2025/01/14 15:47:31 by alde-abr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ INCLUDES = -Ilibft/includes -Iincludes/
 
 OBJ_DIR = obj/
 
-# bonus: all
 
 SRC_DIR = src/
 
@@ -62,6 +61,8 @@ fclean: clean
 	make fclean -C libft/
 
 re: fclean all
+
+bonus: all
 
 test : all
 	cc main.c -g3 -c $(INCLUDES)

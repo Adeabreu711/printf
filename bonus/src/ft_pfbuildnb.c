@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:54:25 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/13 14:58:33 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:15:06 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	*ft_assign_nb(char *temp, t_conv *conv, int nb, int size)
 	if ((!!(conv->flags & NFILL) && conv->precision == -1)
 		|| !!(conv->flags & ALIGN_L))
 		temp[0] += (ft_getsign(nb) - temp[0]) * !!(conv->flags & SIGN);
-	else if (conv->flags & SIGN)
+	else if (conv->flags & SIGN && nb >= 0)
 	{
 		temp[size - nblen - 1] = ft_getsign(nb);
 	}
@@ -69,9 +69,10 @@ int	ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb)
 	int		size;
 	int		sflag;
 
-	sflag = ((conv->flags & SIGN) || (conv->flags & ADD_SPACE));
+	sflag = (((conv->flags & SIGN) && nb >= 0)
+		|| ((conv->flags & ADD_SPACE) && !(conv->flags & SIGN) && nb >= 0 ));
 	size = ft_digitcount(nb) + sflag;
-	if (conv->witdh > size || conv->witdh > size)
+	if (conv->witdh > size || conv->precision > size)
 	{
 		size = ft_intcomp(conv->witdh, conv->precision, 1);
 		size += !conv->witdh * sflag;

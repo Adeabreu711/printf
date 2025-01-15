@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/13 18:28:29 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:01:02 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	main(int argc, char *argv[])
 	(void)argc;
 	(void)argv;
 
-	TEST("A", "[%c je suis un test]\n", 0);
+	//TEST("A", "[%-1.6i]\n", 5000);
 
-	TEST("F", "[ %c %c %c ]\n", '0', 0, '1');
-	TEST("J", "[ %c %c %c ]\n", '2', '1', 0);
-	TEST("K", "[ %c %c %c ]\n", 0, '1', '2');
+	// TEST("F", "[ %c %c %c ]\n", '0', 0, '1');
+	// TEST("J", "[ %c %c %c ]\n", '2', '1', 0);
+	// TEST("K", "[ %c %c %c ]\n", 0, '1', '2');
 
-	// printf("[\0\0 test \0]");
-	// ft_printf("[\0\0 test \0]");
+	printf("[% +i]\n", 50);
+	ft_printf("[% +i]\n", 50);
 
 	printf("\ndone\n");
 }
