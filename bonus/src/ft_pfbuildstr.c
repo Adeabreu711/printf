@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:09:46 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/14 15:49:17 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/15 21:41:33 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str)
 	int		size;
 	int		slen;
 
-	if (!ft_checknullstr(out, str, conv->precision))
+	if (!ft_pfnullcheck(out, conv, !(t_uint64)str, "(null)"))
 		return (conv->lenght);
 	slen = ft_strlen(str);
 	if (conv->precision >= 0 && conv->precision < slen)
