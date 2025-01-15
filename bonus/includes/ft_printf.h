@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:51:46 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/12 15:51:53 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/15 18:32:37 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int			ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb);
 int			ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, t_uint32 nb);
 int			ft_pfbuildhexa(t_sbuild *out, t_conv *conv, t_uint32 nb);
 int			ft_pfbuildptr(t_sbuild *out, t_conv *conv, t_uint64 nb);
+int			ft_pfnullcheck(t_sbuild *out, t_conv *conv, t_uint64 value, char *error);
 
 char		*ft_strprcut(char *str, int precision);
 int			ft_digitcount(int nb);

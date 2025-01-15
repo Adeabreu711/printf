@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 23:43:21 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/13 12:54:55 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:14:30 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, t_uint32 nb)
 	char	*temp;
 	int		size;
 
+	if (!ft_pfnullcheck(out, conv, !(t_uint64)nb, ""))
+		return (conv->lenght);
 	size = ft_unslngdigitcount((t_uint64)nb);
 	if (conv->witdh > size || conv->precision > size)
 		size = ft_intcomp(conv->witdh, conv->precision, 1);

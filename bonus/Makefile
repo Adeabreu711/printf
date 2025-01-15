@@ -6,7 +6,7 @@
 #    By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2025/01/14 15:47:31 by alde-abr         ###   ########.fr        #
+#    Updated: 2025/01/15 18:19:17 by alde-abr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFLAGS = -Wall -Wextra -Werror -g3
 SRC = \
 	ft_printf.c ft_parseformat.c ft_pfbuildchar.c ft_pfbuildhexa.c \
 	ft_pfbuildnb.c ft_pfbuildptr.c ft_pfbuildstr.c ft_unslngconvert_base.c \
-	ft_pfbuildunsnb.c ft_unslngatoi_base.c ft_unslngconvert_base.c ft_unslngitoa.c
+	ft_pfbuildunsnb.c ft_unslngatoi_base.c ft_unslngconvert_base.c ft_unslngitoa.c \
+	ft_pfnullcheck.c
 
 LIBS = \
 	libft/libft.a
@@ -50,7 +51,7 @@ $(NAME): libft/libft.a $(OBJ_DIR) $(OBJ)
 
 #Compilation des fichiers .c en .o
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	$(CC) $(INCLUDES) $(CFLAGS) -g3 -c $< -o $@
+	$(CC) $(INCLUDES) -g3 -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
