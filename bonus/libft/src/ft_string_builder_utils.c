@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:20:09 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/13 17:46:38 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:12:24 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	ft_sblen(t_sbuild *container)
 	temp = container;
 	while (temp->next)
 	{
-		count += SB_SIZE - 1;
+		count += temp->id;
 		temp = temp->next;
 	}
-	return (ft_strlen(temp->str) + count);
+	return (temp->id + count);
 }

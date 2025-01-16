@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parseformat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:11:24 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/12 14:49:51 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/16 15:12:37 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+int		ft_strdigitcount(char *str)
+{
+	int	i;
+	int	count;
+
+	i = -1;
+	count = 0;
+	while (ft_isdigit(str[++i]))
+		count++;
+	return (count);
+
+}
 
 void	ft_init_conv(t_conv *out)
 {
@@ -41,29 +54,31 @@ int	ft_parseformat(t_conv *out, char *format)
 	if (format[0] != '%')
 		return (0);
 	ft_init_conv(out);
-	out->lenght ++;
+	out->lenght++;
 	ft_get_flags(out, format + out->lenght);
 	out->witdh = ft_atoi(format + out->lenght);
 	if (ft_isdigit(format[out->lenght]))
-		out->lenght += ft_digitcount(out->witdh);
+		out->lenght += ft_strdigitcount(format + out->lenght);
 	if (!format[out->lenght])
 		return (0);
 	if (format[out->lenght] == '.')
 	{
 		out->precision = ft_atoi(format + (out->lenght + 1));
 		if (ft_isdigit(format[out->lenght + 1]))
-			out->lenght += ft_digitcount(out->precision);
+			out->lenght += ft_strdigitcount(format + out->lenght + 1);
 		out->lenght++;
 	}
 	if (ft_strchr("cspdiuxX%", format[out->lenght]))
 		out->type = *ft_strchr("cspdiuxX%", format[out->lenght]);
 	if (out->type)
 	{
+		//printf("witdh : %i, precision : %i, type : %c\n", out->witdh, out->precision, out->type);
 		out->lenght++;
 		return (out->lenght);
 	}
 	return (0);
 }
+
 // char c = 0b10000000;
 
 // 0b10100000 & 0b10001000 = 0b10000000; c = (c & 0b10001000); c &= 0b10001000

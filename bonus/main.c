@@ -6,13 +6,13 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:07:06 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/15 21:52:28 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:15:25 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "../libft/includes/libft.h"
-#include "ft_string_builder.h"
+#include "includes/ft_printf.h"
+#include "libft/includes/libft.h"
+#include "libft/includes/ft_string_builder.h"
 
 #define TEST(name, format, ...) {\
 	dprintf(1, "\n ======= TEST : %s : format:%s\n", name, format);\
@@ -37,11 +37,17 @@ int	main(int argc, char *argv[])
 	// TEST("F", "[%-.i]\n",(int)-2147483647);
 	// TEST("G", "[%-.3i]\n",(int)-21);
 	// TEST("G", "[%-3.2i]\n",(int)-21);
-	TEST("A", "[%s]\n", NULL);
-	TEST("A", "[%-8s]\n", NULL);
-	TEST("A", "[%3.8s]\n", NULL);
-	TEST("A", "[%.10s]\n", NULL);
-	TEST("A", "[%.5s]\n", NULL);
+	TEST("A", "[%3.s]\n", '\0');
+	TEST("A", "[%6.2s]\n", '\0');
+	// TEST("A", "[%10c]\n", '\0');
+	// TEST("A", "[%10.5c]\n", '\0');
+	// TEST("A", "[%-5.10c]\n", '\0');
+	// TEST("A", "[%.c]\n", '\0');
+
+	// TEST("A", "[%-8s]\n", NULL);
+	// TEST("A", "[%3.8s]\n", NULL);
+	// TEST("A", "[%.10s]\n", NULL);
+	// TEST("A", "[%.5s]\n", NULL);
 	// TEST("B", "[%-21p]\n", (void *)13);
 	// TEST("C", "[%-010.20X]\n", 42);
 	// TEST("D", "[%#X]\n", 0);

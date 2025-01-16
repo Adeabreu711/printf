@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 22:07:05 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/15 21:33:39 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:57:02 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	ft_pfbuildptr(t_sbuild *out, t_conv *conv, t_uint64 nb)
 		return (conv->lenght);
 	temp = ft_set_tempunsnb(temp, conv, size, hexalen);
 	temp = ft_assign_ptr(temp, conv, nb, base);
-	ft_sb_buildstr(&out, temp, size);
+	ft_sb_addstr(&out, temp, size);
 	free(temp);
 	return (conv->lenght);
 }

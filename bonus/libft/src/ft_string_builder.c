@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:27:55 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/13 17:59:08 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:01:43 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,37 @@ t_sbuild	*ft_sbnext(t_sbuild *last, t_sbuild *new)
 	return (new);
 }
 
+
+char	*ft_sb_build(t_sbuild *container)
+{
+	t_sbuild	*temp;
+	char		*str;
+	int			size;
+	int			i;
+
+	if (!container || SB_SIZE <= 1)
+		return (NULL);
+	i = 0;
+	size = ft_sblen(container);
+	temp = container;
+	str = ft_calloc(size + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (temp->next)
+	{
+		ft_memmove(str + i, temp->str, temp->id);
+		i += temp->id;
+		temp = temp->next;
+	}
+	ft_memmove(str + i, temp->str, temp->id);
+	return (str);
+}
+
 /**
  * @brief Add n char of the given str at the end of
  * the last sb (string builder) string.
  */
-void	*ft_sb_buildstr(t_sbuild **container, char *str, size_t n)
+void	*ft_sb_addstr(t_sbuild **container, char *str, size_t n)
 {
 	t_sbuild	*last;
 	size_t		i;
@@ -69,11 +95,8 @@ int	ft_sb_display(t_sbuild *container)
 	while (temp->next)
 	{
 		ft_putstrn(temp->str, temp->id);
-		// printf("temp : (%s)\n", temp->str);
-		// printf("id size : %i\n", temp->id);
 		temp = temp->next;
 	}
 	ft_putstrn(temp->str, temp->id);
-	// printf("id size : %i\n", temp->id);
 	return (ft_sblen(container));
 }

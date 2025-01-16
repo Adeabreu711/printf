@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:51:46 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/15 18:32:37 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:01:07 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ char		*ft_unslngitoa(t_uint64 nb);
 t_uint64	ft_unslngatoi_base(char *str, char *base);
 int			ft_unslngdigitcount_base(t_uint64 dec, char *base_to);
 char		*ft_unslngconvert_base(char *n, char *base_from, char *base_to);
+int			ft_strdigitcount(char *str);
 
 #endif

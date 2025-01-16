@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 23:43:21 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/15 19:14:30 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:26:31 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, t_uint32 nb)
 		return (conv->lenght);
 	temp = ft_set_tempunsnb(temp, conv, size, ft_digitcount(nb));
 	ft_assign_unslngnb(temp, conv, (t_uint64)nb, size);
-	ft_sb_buildstr(&out, temp, size);
+	ft_sb_addstr(&out, temp, size);
 	free(temp);
 	return (conv->lenght);
 }

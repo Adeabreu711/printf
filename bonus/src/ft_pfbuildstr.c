@@ -6,23 +6,11 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:09:46 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/15 21:41:33 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:17:56 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-int	ft_checknullstr(t_sbuild *out, char *str, int prc)
-{
-	if (!str && prc == -1)
-	{
-		ft_sb_buildstr(&out, "(null)", 6);
-		return (0);
-	}
-	else if (!str)
-		return (0);
-	return (1);
-}
 
 int	ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str)
 {
@@ -46,7 +34,7 @@ int	ft_pfbuildstr(t_sbuild *out, t_conv *conv, char *str)
 		ft_memmove(temp, str, slen);
 	else
 		ft_memmove(temp + (size - slen), str, slen);
-	ft_sb_buildstr(&out, temp, size);
+	ft_sb_addstr(&out, temp, size);
 	free(temp);
 	return (conv->lenght);
 }

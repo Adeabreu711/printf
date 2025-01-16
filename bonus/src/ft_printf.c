@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/14 15:49:15 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:13:40 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_pfgetformat(t_sbuild *sb, int count, char *s)
 {
-	ft_sb_buildstr(&sb, (char *)s + count, 1);
+	ft_sb_addstr(&sb, (char *)s + count, 1);
 	return (1);
 }
 
@@ -32,13 +32,14 @@ int	ft_applyconv(va_list ptr, t_conv *conv, t_sbuild *sb)
 		return (ft_pfbuildhexa(sb, conv, va_arg(ptr, unsigned int)));
 	else if (conv->type == 'p')
 		return (ft_pfbuildptr(sb, conv, va_arg(ptr, unsigned long)));
-	ft_sb_buildstr(&sb, "%", 1);
+	ft_sb_addstr(&sb, "%", 1);
 	return (conv->lenght);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	int			count;
+	char		*str;
 	va_list		ptr;
 	t_conv		conv;
 	t_sbuild	*sb;
@@ -53,7 +54,10 @@ int	ft_printf(const char *s, ...)
 		else
 			count += ft_applyconv(ptr, &conv, sb);
 	}
-	count = ft_sb_display(sb);
+	str = ft_sb_build (sb);
+	count = ft_sblen(sb);
+	write(1, str, count);
+	free (str);
 	ft_sbclear(&sb);
 	va_end(ptr);
 	return (count);
