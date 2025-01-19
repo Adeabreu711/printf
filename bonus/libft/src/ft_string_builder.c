@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:27:55 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/16 14:01:43 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/19 01:26:05 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_sbuild	*ft_sbnext(t_sbuild *last, t_sbuild *new)
 	last->id = SB_SIZE - 1;
 	return (new);
 }
-
 
 char	*ft_sb_build(t_sbuild *container)
 {

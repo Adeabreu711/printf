@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:16:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/13 17:05:39 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/19 01:29:57 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef unsigned short	t_uint16;
 typedef unsigned int	t_uint32;
 typedef unsigned long	t_uint64;
 
-# define INT_MIN (-0x80000000)
+# define INT_MIN -0x80000000
 # define INT_MAX 2147483647
 
 //Part 1 : libc Functions
@@ -63,7 +63,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 //Part BONUS :
-
 typedef struct s_list
 {
 	void			*content;
@@ -80,8 +79,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-//others :
-
+//Others :
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putbits(char bits);
@@ -94,6 +92,5 @@ int		ft_digitcount_base(int dec, char *base_to);
 char	*ft_strupcase(char *str);
 char	*ft_strlowcase(char *str);
 int		ft_intcomp(int i, int j, t_uint16 upper);
-void	ft_putstrn(char *s, size_t n);
 
 #endif

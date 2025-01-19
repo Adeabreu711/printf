@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:54:25 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/16 13:11:04 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/19 01:21:45 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static char	*ft_set_tempunsnb(char *temp, t_conv *conv, int size, int nb)
 		while (--nblen >= 0)
 			temp[i++] = '0';
 	}
-	else if ((conv->flags & NFILL) && !(conv->flags & ALIGN_L) && conv->precision == -1)
+	else if ((conv->flags & NFILL) && !(conv->flags & ALIGN_L)
+		&& conv->precision == -1)
 		temp = ft_memset(temp, '0', size);
 	return (temp);
 }
@@ -54,7 +55,8 @@ static char	*ft_assign_nb(char *temp, t_conv *conv, int nb, int size)
 	if (nblen < conv->precision + ng)
 		offset += conv->precision + ng - nblen;
 	if (conv->flags & ALIGN_L)
-		ft_memmove(temp + ((conv->flags & SIGN) || ng) + offset, snb + ng, nblen - ng);
+		ft_memmove(temp + ((conv->flags & SIGN)
+				|| ng) + offset, snb + ng, nblen - ng);
 	else
 		ft_memmove(temp + (size - nblen + ng), snb + ng, nblen - ng);
 	if (((conv->flags & NFILL) && conv->precision == -1)
@@ -64,7 +66,6 @@ static char	*ft_assign_nb(char *temp, t_conv *conv, int nb, int size)
 		temp[size - nblen - !ng - offset] = ft_getsign(nb);
 	return (free(snb), temp);
 }
-//printf("size : %i, nblen : %i, offset : %i, temp[%i]\n", size, nblen, offset, size - nblen - (nb >= 0) - offset);
 
 int	ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb)
 {
@@ -75,7 +76,7 @@ int	ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb)
 	if (!ft_pfnullcheck(out, conv, !(t_uint64)nb, ""))
 		return (conv->lenght);
 	sflag = (((conv->flags & SIGN) && nb >= 0)
-		|| ((conv->flags & ADD_SPACE) && !(conv->flags & SIGN) && nb >= 0 ));
+			|| ((conv->flags & ADD_SPACE) && !(conv->flags & SIGN) && nb >= 0));
 	size = ft_digitcount(nb) + sflag;
 	if (conv->witdh > size || conv->precision + (nb < 0) > size)
 	{
