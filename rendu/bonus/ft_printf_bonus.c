@@ -6,11 +6,11 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:42:03 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/20 16:46:31 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:55:46 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_pfgetformat(t_sbuild *sb, int count, char *s)
 {
@@ -44,6 +44,8 @@ int	ft_printf(const char *s, ...)
 	t_conv		conv;
 	t_sbuild	*sb;
 
+	if (!s)
+		return (-1);
 	sb = ft_sbnew("");
 	va_start(ptr, s);
 	count = 0;
