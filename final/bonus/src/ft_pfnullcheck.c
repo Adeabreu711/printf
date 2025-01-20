@@ -6,11 +6,11 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:10:04 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/20 15:53:50 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:40:32 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/ft_printf_bonus.h"
 
 static int	ft_checkerrorstr(t_conv *conv, char *error)
 {
@@ -31,10 +31,7 @@ int	ft_pfnullcheck(t_sbuild *out, t_conv *conv, t_uint64 nb, char *s)
 	fill_size = 0;
 	strnull = ft_checkerrorstr(conv, s);
 	err_len = ft_strlen(s);
-	if (
-		nb &&
-	((!conv->precision)
-	|| err_len > 0))
+	if (nb && ((!conv->precision) || err_len > 0))
 	{
 		if (conv->witdh > err_len * strnull)
 			fill_size = conv->witdh - err_len + (!strnull * 6);

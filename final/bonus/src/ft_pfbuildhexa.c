@@ -6,11 +6,11 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:01:33 by alex              #+#    #+#             */
-/*   Updated: 2025/01/20 16:27:44 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:36:41 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/ft_printf_bonus.h"
 
 static int	ft_get_hexa_size(t_conv *conv, int hexalen, t_uint32 nb)
 {

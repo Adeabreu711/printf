@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/23 17:02:33 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/20 12:00:12 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,6 @@ int	ft_printf(const char *s, ...)
 			count += ft_applyconv(c, ptr);
 	}
 	return (count);
-}
-
-int	main(int argc, char *argv[])
-{
-	(void)argc;
-	(void)argv;
-	char *t = "test";
-	ft_printf("ft_test : % l123 \n", 0xFFF, 'a');
-	printf("test    : % l123 \n", 0xFFF, 'a');
-
-	//TEST("TEST % i\n", 10);
-	// printf("%i\n", ft_printf("ft_test : %p\n", t));
-	// printf("%i\n", printf("test    : %p\n", t));
 }
 
 /*

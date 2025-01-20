@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pfbuildhexa.c                                   :+:      :+:    :+:   */
+/*   ft_pfbuildptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 18:01:33 by alex              #+#    #+#             */
-/*   Updated: 2025/01/20 16:27:44 by alde-abr         ###   ########.fr       */
+/*   Created: 2025/01/11 22:07:05 by alexandre         #+#    #+#             */
+/*   Updated: 2025/01/20 16:36:47 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-
-static int	ft_get_hexa_size(t_conv *conv, int hexalen, t_uint32 nb)
-{
-	int	size;
-	int	sflag;
-
-	size = hexalen;
-	sflag = conv->precision + !!(conv->flags & PREFIX) * 2;
-	if (sflag && conv->witdh < sflag && sflag > hexalen)
-		return (sflag);
-	if (conv->witdh > size || conv->precision > size)
-		size = ft_intcomp(conv->witdh, conv->precision, 1);
-	if (!!(conv->flags & PREFIX) && nb && conv->witdh < hexalen + 2
-		&& conv->witdh > conv->precision)
-		size += 2;
-	return (size);
-}
+#include "../includes/ft_printf_bonus.h"
 
 static char	*ft_set_tempunsnb(char *temp, t_conv *conv, int size, int hexalen)
 {
@@ -48,53 +31,52 @@ static char	*ft_set_tempunsnb(char *temp, t_conv *conv, int size, int hexalen)
 	return (temp);
 }
 
-static char	*ft_assign_hexa(char *temp, t_conv *conv, t_uint32 nb, char *base)
+static char	*ft_assign_ptr(char *temp, t_conv *conv, t_uint64 nb, char *base)
 {
 	char	*hexa;
 	char	*dec;
 	int		hexalen;
+	int		size;
 	int		offset;
-	int		prefix;
 
-	prefix = ((conv->flags & PREFIX) && nb);
-	dec = ft_unslngitoa((t_uint64)nb);
+	size = strlen(temp);
+	dec = ft_unslngitoa(nb);
 	hexa = ft_unslngconvert_base(dec, "0123456789", base);
 	hexalen = ft_strlen(hexa);
 	offset = (conv->precision - hexalen) * (hexalen < conv->precision);
 	if (!!(conv->flags & ALIGN_L))
 	{
-		if (prefix)
-			ft_memmove(temp, "0x", 2);
-		ft_memmove(temp + prefix * 2 + offset, hexa, hexalen);
+		ft_memmove(temp, "0x", 2);
+		ft_memmove(temp + 2 + offset, hexa, hexalen);
 		return (free(hexa), free(dec), temp);
 	}
-	if ((conv->flags & NFILL) && conv->precision == -1 && prefix)
+	if ((conv->flags & NFILL) && conv->precision == -1)
 		ft_memmove(temp, "0x", 2);
-	else if (prefix)
-		ft_memmove(temp + (strlen(temp) - hexalen - offset) - 2, "0x", 2);
-	ft_memmove(temp + (strlen(temp) - hexalen), hexa, hexalen);
+	else
+		ft_memmove(temp + (size - hexalen - offset) - 2, "0x", 2);
+	ft_memmove(temp + (size - hexalen), hexa, hexalen);
 	return (free(hexa), free(dec), temp);
 }
 
-int	ft_pfbuildhexa(t_sbuild *out, t_conv *conv, t_uint32 nb)
+int	ft_pfbuildptr(t_sbuild *out, t_conv *conv, t_uint64 nb)
 {
 	char	*temp;
 	char	*base;
 	int		hexalen;
 	int		size;
 
-	if (!ft_pfnullcheck(out, conv, !(t_uint64)nb, ""))
+	if (!ft_pfnullcheck(out, conv, !(t_uint64)nb, "(nil)"))
 		return (conv->lenght);
 	base = "0123456789abcdef";
-	hexalen = ft_unslngdigitcount_base((t_uint64)nb, base);
-	size = ft_get_hexa_size(conv, hexalen, nb);
+	hexalen = ft_unslngdigitcount_base(nb, base);
+	size = hexalen + 2;
+	if (conv->witdh > size || conv->precision + 2 > size)
+		size = ft_intcomp(conv->witdh, conv->precision + 2, 1);
 	temp = ft_calloc(size + 1, sizeof(char));
 	if (!temp)
 		return (conv->lenght);
 	temp = ft_set_tempunsnb(temp, conv, size, hexalen);
-	temp = ft_assign_hexa(temp, conv, nb, base);
-	if (conv->type == 'X')
-		temp = ft_strupcase(temp);
+	temp = ft_assign_ptr(temp, conv, nb, base);
 	ft_sb_addstr(&out, temp, size);
 	free(temp);
 	return (conv->lenght);
