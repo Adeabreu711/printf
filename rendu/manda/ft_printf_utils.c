@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/11 13:34:48 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/23 12:33:22 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
 
-int	ft_strlen(char *str)
+int	ft_pfstrlen(char *str)
 {
 	int	i;
 

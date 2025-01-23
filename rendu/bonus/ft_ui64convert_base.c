@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:37:51 by alex              #+#    #+#             */
-/*   Updated: 2025/01/20 16:57:05 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:53:28 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_strnbr_to_base(t_uint64 dec, char *base, char *s)
  * @return The number of digits in the give int "dec" (decimal)
  * converted into the given base "base_to" .
  */
-int	ft_unslngdigitcount_base(t_uint64 dec, char *base_to)
+int	ft_ui64digitcount_base(t_uint64 dec, char *base_to)
 {
 	int			count;
 	t_uint64	temp;
@@ -62,14 +62,14 @@ int	ft_unslngdigitcount_base(t_uint64 dec, char *base_to)
  * @return A pointer to the converted string "n" in the given
  * target base "base_to".
  */
-char	*ft_unslngconvert_base(char *n, char *base_from, char *base_to)
+char	*ft_ui64convert_base(char *n, char *base_from, char *base_to)
 {
 	char		*s;
 	t_uint64	dec;
 	int			size;
 
-	dec = ft_unslngatoi_base(n, base_from);
-	size = ft_unslngdigitcount_base(dec, base_to);
+	dec = ft_ui64atoi_base(n, base_from);
+	size = ft_ui64digitcount_base(dec, base_to);
 	s = ft_calloc(size + 1, sizeof(char));
 	if (s == NULL)
 		return (NULL);

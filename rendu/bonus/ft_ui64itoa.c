@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:07:48 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/20 16:59:08 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:50:49 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * @return The number of digits in the the given unsigned long "nb".
  */
-int	ft_unslngdigitcount(t_uint64 nb)
+int	ft_ui64digitcount(t_uint64 nb)
 {
 	int	count;
 
@@ -33,12 +33,12 @@ int	ft_unslngdigitcount(t_uint64 nb)
 /**
  * @return A string corresponding to the given unsigned long "n".
  */
-char	*ft_unslngitoa(t_uint64 nb)
+char	*ft_ui64itoa(t_uint64 nb)
 {
 	char	*str;
 	int		count;
 
-	count = ft_unslngdigitcount(nb);
+	count = ft_ui64digitcount(nb);
 	str = ft_calloc(count + 1, sizeof(char));
 	if (!str)
 		return (NULL);

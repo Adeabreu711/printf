@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:20:45 by alde-abre         #+#    #+#             */
-/*   Updated: 2025/01/20 19:56:10 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:44:49 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 int	ft_applyconv(char c, va_list ptr)
 {
 	if (c == 'c')
-		return (ft_putchar(va_arg(ptr, int)));
+		return (ft_pfputchar(va_arg(ptr, int)));
 	else if (c == 's')
-		return (ft_putstr(va_arg(ptr, char *)));
+		return (ft_pfputstr(va_arg(ptr, char *)));
 	else if (c == 'd' || c == 'i')
-		return (ft_putnbr(va_arg(ptr, int)));
+		return (ft_pfputnbr(va_arg(ptr, int)));
 	else if (c == 'u')
-		return (ft_putunsnbr(va_arg(ptr, int)));
+		return (ft_pfputunsnbr(va_arg(ptr, int)));
 	else if (c == 'x' || c == 'X')
 		return (ft_displayhexa(va_arg(ptr, unsigned int), c));
 	if (c == 'p')
 		return (ft_displayptr(va_arg(ptr, unsigned long)));
 	else if (c == '%')
-		return (ft_putchar('%'));
+		return (ft_pfputchar('%'));
 	return (0);
 }
 
@@ -47,7 +47,7 @@ int	ft_printf(const char *s, ...)
 	{
 		c = ft_gettype(s + i++, "cspdiuxX%");
 		if (!c)
-			count += ft_putchar(s[--i]);
+			count += ft_pfputchar(s[--i]);
 		else
 			count += ft_applyconv(c, ptr);
 	}

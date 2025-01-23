@@ -6,7 +6,7 @@
 #    By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:01:16 by alde-abre         #+#    #+#              #
-#    Updated: 2025/01/20 19:55:06 by alde-abr         ###   ########.fr        #
+#    Updated: 2025/01/23 19:56:17 by alde-abr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,17 +22,17 @@ SRC = \
 
 BONUS = \
 	ft_printf_bonus.c ft_parseformat.c ft_pfbuildchar.c ft_pfbuildhexa.c \
-	ft_pfbuildnb.c ft_pfbuildptr.c ft_pfbuildstr.c ft_unslngconvert_base.c \
-	ft_pfbuildunsnb.c ft_unslngatoi_base.c ft_unslngconvert_base.c ft_unslngitoa.c \
-	ft_pfnullcheck.c
+	ft_pfbuildnb.c ft_pfbuildptr.c ft_pfbuildstr.c ft_pfnullcheck.c \
+	ft_pfbuildunsnb.c ft_ui64atoi_base.c ft_ui64convert_base.c ft_ui64itoa.c
+
 
 LIBS = \
 	bonus/libft/libft.a
 
-INCLUDES = -Ibonus/libft/includes -Ibonus/ -Imanda/
+MANDA_INCLUDES = -Imanda/
+BONUS_INCLUDES = -Ibonus/ -Ibonus/libft/includes
 
 MANDA_DIR = manda/
-
 BONUS_DIR = bonus/
 
 all: $(NAME)
@@ -50,10 +50,10 @@ $(NAME): $(OBJ)
 
 #Compilation des fichiers .c en .o
 %.o : %.c
-	$(CC) $(INCLUDES) -c $< -o $@
+	$(CC) $(MANDA_INCLUDES) -c $< -o $@
 
 $(BONUS_DIR)%.o : $(BONUS_DIR)%.c
-	$(CC) $(INCLUDES) -c $< -o $@
+	$(CC) $(BONUS_INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
@@ -72,7 +72,7 @@ bonus : bonus/libft/libft.a $(OBJ_BONUS)
 
 
 test : all
-	cc main.c -g3 -c $(INCLUDES)
+	cc main.c -g3 -c $(MANDA_INCLUDES) $(BONUS_INCLUDES)
 	cc main.o -L. -lftprintf
 
 .PHONY = all clean fclean re test bonus

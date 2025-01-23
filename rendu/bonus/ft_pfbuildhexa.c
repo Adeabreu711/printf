@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:01:33 by alex              #+#    #+#             */
-/*   Updated: 2025/01/20 16:58:20 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:53:28 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ static char	*ft_assign_hexa(char *temp, t_conv *conv, t_uint32 nb, char *base)
 	int		prefix;
 
 	prefix = ((conv->flags & PREFIX) && nb);
-	dec = ft_unslngitoa((t_uint64)nb);
-	hexa = ft_unslngconvert_base(dec, "0123456789", base);
+	dec = ft_ui64itoa((t_uint64)nb);
+	hexa = ft_ui64convert_base(dec, "0123456789", base);
 	hexalen = ft_strlen(hexa);
 	offset = (conv->precision - hexalen) * (hexalen < conv->precision);
 	if (!!(conv->flags & ALIGN_L))
@@ -86,7 +86,7 @@ int	ft_pfbuildhexa(t_sbuild *out, t_conv *conv, t_uint32 nb)
 	if (!ft_pfnullcheck(out, conv, !(t_uint64)nb, ""))
 		return (conv->lenght);
 	base = "0123456789abcdef";
-	hexalen = ft_unslngdigitcount_base((t_uint64)nb, base);
+	hexalen = ft_ui64digitcount_base((t_uint64)nb, base);
 	size = ft_get_hexa_size(conv, hexalen, nb);
 	temp = ft_calloc(size + 1, sizeof(char));
 	if (!temp)

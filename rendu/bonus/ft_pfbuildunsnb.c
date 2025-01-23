@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 23:43:21 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/20 16:58:05 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:50:48 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static char	*ft_assign_unslngnb(char *temp, t_conv *conv, t_uint64 nb, int size)
 	int		offset;
 	char	*snb;
 
-	nblen = ft_unslngdigitcount(nb);
+	nblen = ft_ui64digitcount(nb);
 	offset = (conv->precision - nblen) * (nblen < conv->precision);
-	snb = ft_unslngitoa(nb);
+	snb = ft_ui64itoa(nb);
 	if (!!(conv->flags & ALIGN_L))
 		ft_memmove(temp + offset, snb, nblen);
 	else
@@ -53,7 +53,7 @@ int	ft_pfbuildunsnb(t_sbuild *out, t_conv *conv, t_uint32 nb)
 
 	if (!ft_pfnullcheck(out, conv, !(t_uint64)nb, ""))
 		return (conv->lenght);
-	size = ft_unslngdigitcount((t_uint64)nb);
+	size = ft_ui64digitcount((t_uint64)nb);
 	if (conv->witdh > size || conv->precision > size)
 		size = ft_intcomp(conv->witdh, conv->precision, 1);
 	temp = ft_calloc(size + 1, sizeof(char));

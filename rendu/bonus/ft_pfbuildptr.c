@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 22:07:05 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/20 16:58:12 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:53:28 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static char	*ft_assign_ptr(char *temp, t_conv *conv, t_uint64 nb, char *base)
 	int		offset;
 
 	size = strlen(temp);
-	dec = ft_unslngitoa(nb);
-	hexa = ft_unslngconvert_base(dec, "0123456789", base);
+	dec = ft_ui64itoa(nb);
+	hexa = ft_ui64convert_base(dec, "0123456789", base);
 	hexalen = ft_strlen(hexa);
 	offset = (conv->precision - hexalen) * (hexalen < conv->precision);
 	if (!!(conv->flags & ALIGN_L))
@@ -68,7 +68,7 @@ int	ft_pfbuildptr(t_sbuild *out, t_conv *conv, t_uint64 nb)
 	if (!ft_pfnullcheck(out, conv, !(t_uint64)nb, "(nil)"))
 		return (conv->lenght);
 	base = "0123456789abcdef";
-	hexalen = ft_unslngdigitcount_base(nb, base);
+	hexalen = ft_ui64digitcount_base(nb, base);
 	size = hexalen + 2;
 	if (conv->witdh > size || conv->precision + 2 > size)
 		size = ft_intcomp(conv->witdh, conv->precision + 2, 1);

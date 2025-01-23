@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:42:03 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/20 19:55:46 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:57:03 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,40 +64,3 @@ int	ft_printf(const char *s, ...)
 	va_end(ptr);
 	return (count);
 }
-
-// int	main(int argc, char *argv[])
-// {
-// 	(void)argc;
-// 	(void)argv;
-// 	char *t = "test";
-// 	// ft_printf("ft_test : %c\n", 0xFFF);
-// 	// printf("test    : %c\n", 0xFFF);
-
-// 	TEST("TEST %p\n", 0x7FFFFFFFFFFFFFFF);
-// 	// printf("%i\n", ft_printf("ft_test : %p\n", t));
-// 	// printf("%i\n", printf("test    : %p\n", t));
-// }
-
-/*
-
-%l45.6d
-
-%[+- #0]*[0-9]*        .[0-9]*     [cspdiuxX%]
- Flags   Field_width   Precision   Conversion specifier
-
-+ di
-- *
-0 diuxX
-' ' di
-#
-
-%10c, 'A' "         A"
-
-%.4d, 45 "0045"
-%04d, 45 "0045"
-%8.4, 45 "    0045"
-%-8d, 1000 "1000    "
-%+4.2d, 5 " +05"
-%#5.2x, 5 " 0x05"
-
-*/

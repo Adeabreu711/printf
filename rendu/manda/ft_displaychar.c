@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_displaychar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:19 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/11 11:09:58 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/23 12:31:11 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * @brief Write the given char "c" in the standart entry (1).
  */
-int	ft_putchar(char c)
+int	ft_pfputchar(char c)
 {
 	return (write(1, &c, 1));
 }
@@ -23,7 +23,7 @@ int	ft_putchar(char c)
 /**
  * @brief Write the given string "s" in the standart entry (1).
  */
-int	ft_putstr(char *s)
+int	ft_pfputstr(char *s)
 {
 	int	i;
 	int	count;

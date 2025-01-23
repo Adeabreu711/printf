@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unslngatoi_base.c                               :+:      :+:    :+:   */
+/*   ft_ui64atoi_base.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:18:16 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/20 16:58:59 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:52:58 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_base(char *base)
  * The string can start with whitespaces, signs "-+" and numbers.
  * the base cannot have identical chars and the following chars " +-"
  */
-t_uint64	ft_unslngatoi_base(char *str, char *base)
+t_uint64	ft_ui64atoi_base(char *str, char *base)
 {
 	int			i;
 	t_uint64	result;

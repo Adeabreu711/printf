@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:54:25 by alde-abr          #+#    #+#             */
-/*   Updated: 2025/01/20 16:58:16 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 20:06:06 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ static char	*ft_set_tempunsnb(char *temp, t_conv *conv, int size, int nb)
 {
 	int	i;
 	int	nblen;
+	int	space;
 
 	i = 0;
 	nblen = ft_digitcount(nb);
+	space = !!(conv->flags & ADD_SPACE);
 	temp = ft_memset(temp, ' ', size);
 	if (nblen < conv->precision + (nb < 0))
 	{
@@ -37,7 +39,7 @@ static char	*ft_set_tempunsnb(char *temp, t_conv *conv, int size, int nb)
 	}
 	else if ((conv->flags & NFILL) && !(conv->flags & ALIGN_L)
 		&& conv->precision == -1)
-		temp = ft_memset(temp, '0', size);
+		ft_memset(temp + space, '0', size - space);
 	return (temp);
 }
 
@@ -55,7 +57,7 @@ static char	*ft_assign_nb(char *temp, t_conv *conv, int nb, int size)
 	if (nblen < conv->precision + ng)
 		offset += conv->precision + ng - nblen;
 	if (conv->flags & ALIGN_L)
-		ft_memmove(temp + ((conv->flags & SIGN)
+		ft_memmove(temp + ((conv->flags & SIGN) || (conv->flags & ADD_SPACE)
 				|| ng) + offset, snb + ng, nblen - ng);
 	else
 		ft_memmove(temp + (size - nblen + ng), snb + ng, nblen - ng);
@@ -81,7 +83,7 @@ int	ft_pfbuildnb(t_sbuild *out, t_conv *conv, int nb)
 	if (conv->witdh > size || conv->precision + (nb < 0) > size)
 	{
 		size = ft_intcomp(conv->witdh, conv->precision + (nb < 0), 1);
-		size += !conv->witdh * sflag;
+		size += (!conv->witdh || conv->witdh < conv->precision) * sflag;
 	}
 	temp = ft_calloc(size + 1, sizeof(char));
 	if (!temp)

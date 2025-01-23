@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:51:46 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/20 16:58:46 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:53:28 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int			ft_pfnullcheck(t_sbuild *out, t_conv *conv, t_uint64 nb, char *s);
 char		*ft_strprcut(char *str, int precision);
 int			ft_digitcount(int nb);
 char		ft_getsign(int nb);
-int			ft_unslngdigitcount(t_uint64 nb);
-char		*ft_unslngitoa(t_uint64 nb);
-t_uint64	ft_unslngatoi_base(char *str, char *base);
-int			ft_unslngdigitcount_base(t_uint64 dec, char *base_to);
-char		*ft_unslngconvert_base(char *n, char *base_from, char *base_to);
+int			ft_ui64digitcount(t_uint64 nb);
+char		*ft_ui64itoa(t_uint64 nb);
+t_uint64	ft_ui64atoi_base(char *str, char *base);
+int			ft_ui64digitcount_base(t_uint64 dec, char *base_to);
+char		*ft_ui64convert_base(char *n, char *base_from, char *base_to);
 int			ft_strdigitcount(char *str);
 
 #endif

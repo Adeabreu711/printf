@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_displayhexa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:02:27 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/09 19:31:26 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/23 12:33:22 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_base(char *base)
+static int	check_base(char *base)
 {
 	int	i;
 	int	z;
@@ -39,7 +39,7 @@ int	check_base(char *base)
 	return (1);
 }
 
-int	printnbr_to_base(unsigned long nbr, int base_lenght, char *base)
+static int	printnbr_to_base(unsigned long nbr, int base_lenght, char *base)
 {
 	char	c;
 	int		count;
@@ -51,13 +51,13 @@ int	printnbr_to_base(unsigned long nbr, int base_lenght, char *base)
 	return (count + write(1, &c, 1));
 }
 
-int	ft_putunsnbr_base(unsigned long nbr, char *base)
+static int	ft_putunsnbr_base(unsigned long nbr, char *base)
 {
 	int	base_lenght;
 	int	count;
 
 	count = 0;
-	base_lenght = ft_strlen(base);
+	base_lenght = ft_pfstrlen(base);
 	if (!check_base(base))
 		return (0);
 	count += printnbr_to_base(nbr, base_lenght, base);

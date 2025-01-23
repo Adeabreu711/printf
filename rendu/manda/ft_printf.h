@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alde-abre <alde-abre@42student.fr>         +#+  +:+       +#+        */
+/*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:13:46 by alde-abre         #+#    #+#             */
-/*   Updated: 2024/12/11 13:34:21 by alde-abre        ###   ########.fr       */
+/*   Updated: 2025/01/23 12:35:34 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 
 int		ft_printf(const char *s, ...);
 char	ft_gettype(const char *s, char *set);
-int		ft_strlen(char *str);
-int		ft_putchar(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr(int n);
-int		ft_putunsnbr(unsigned int n);
+int		ft_pfstrlen(char *str);
+int		ft_pfputchar(char c);
+int		ft_pfputstr(char *s);
+int		ft_pfputnbr(int n);
+int		ft_pfputunsnbr(unsigned int n);
 int		ft_displayhexa(unsigned int value, char form);
 int		ft_displayptr(unsigned long value);
 
