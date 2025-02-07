@@ -6,7 +6,7 @@
 /*   By: alde-abr <alde-abr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:16:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/19 01:29:57 by alde-abr         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:35:03 by alde-abr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ft_putstr(char *s);
 void	ft_putbits(char bits);
 char	*ft_strrnchr(const char *s, int c, size_t n);
 int		ft_digitcount(int n);
-int		ft_putnbr(int n);
+int		ft_pfputnbr(int n);
 int		ft_atoi_base(char *str, char *base);
 char	*ft_convert_base(char *n, char *base_from, char *base_to);
 int		ft_digitcount_base(int dec, char *base_to);
